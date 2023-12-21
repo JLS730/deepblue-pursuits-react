@@ -1,0 +1,65 @@
+.rods-container .rods-title {
+  font-family: sans-serif;
+  padding: 2em 0;
+}
+.rods-container .rods-sort-conatiner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  padding: 0 1em;
+}
+.rods-container .rods-sort-conatiner .sort-results-text {
+  font-size: 1.2em;
+}
+.rods-container .rods-sort-conatiner .sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  background-color: white;
+}
+.rods-container .rods-sort-conatiner .sort-container .sort-by-text {
+  padding: 0.4em;
+}
+.rods-container .rods-sort-conatiner .sort-container .categories {
+  border: none;
+  padding: 0.2em;
+  background-color: white;
+}
+.rods-container .rods-results-container {
+  padding: 3em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+.rods-container .rods-results-container .rods-results {
+  height: auto;
+  width: 230px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+.rods-container .rods-results-container .rods-results a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rods-container .rods-results-container .rods-results img {
+  left: -70px;
+  height: 230px;
+}
+.rods-container .rods-results-container .rods-results .rod-result-name {
+  text-align: center;
+  padding: 0.7em 0;
+  height: 60px;
+}
+.rods-container .rods-results-container .rods-results .rod-result-price {
+  padding: 0.8em 0;
+}/*# sourceMappingURL=casting-rods.css.map */

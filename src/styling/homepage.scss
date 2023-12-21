@@ -1,0 +1,148 @@
+.homepage-banner-image-container {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+
+    .homepage-banner-image {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        bottom: -900px;
+    } 
+}
+
+
+.homepage-container {
+    min-height: calc(100vh - 59.5px - 151.133px);
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    // border: 1px solid red;
+
+    .hot-items-container {
+        // background-color: aqua;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .hot-items-title {
+            font-family: sans-serif;
+            font-size: 3em;
+            padding: 1.5em 0;
+        }
+
+        .items-container {
+            padding: 3em 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5em;
+            // background-color: pink;
+
+            .rods-results {
+                // border: 1px solid blue;
+                height: auto;
+                width: 230px;
+                overflow: hidden;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-family: sans-serif;
+                border: 1px solid black;
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+    
+                img {
+                    // position: absolute;
+                    left: -70px;
+                    height: 230px;
+                }
+
+                .rod-result-name {
+                    text-align: center;
+                    padding: .7em 0;
+                    height: 60px;
+                    width: 100%;
+                    border-top: 1px solid black;
+                }
+
+                .rod-result-price {
+                    padding: .8em 0;
+                }
+            }
+        }
+
+        .shop-all-button-container {
+            // background-color: red;
+            padding: 3em 0;
+
+            .shop-all-button {
+                font-size: 1.5em;
+                padding: .2em 1em;
+                border: 1px solid black;
+            }
+        }
+    }
+
+    .tips-and-tricks-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2em 0;
+
+        .tips-and-tricks-title {
+            padding: 2em 0;
+            font-size: 3em;
+            font-family: sans-serif;
+        }
+
+        .tips-and-tricks {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5em;
+
+            .tips-and-tricks-containers {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 300px;
+                // background-color: aqua;
+                font-family: sans-serif;
+                
+                .tips-and-tricks-image-container {
+                    position: relative;
+                    overflow: hidden;
+                    width: 100%;
+                    
+                    .tips-and-tricks-image {
+                        height: 300px;
+                        // position: absolute;
+                    }
+                }
+                
+                .tips-and-tricks-text {
+                    padding: 1em 0;
+                    text-align: center;
+                }
+    
+                .tips-and-tricks-description {
+                    text-align: justify;
+                    padding: .4em;
+                }
+    
+            }
+        }
+
+    }
+}

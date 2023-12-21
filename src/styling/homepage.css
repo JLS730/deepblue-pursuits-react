@@ -1,0 +1,118 @@
+.homepage-banner-image-container {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+.homepage-banner-image-container .homepage-banner-image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: -900px;
+}
+
+.homepage-container {
+  min-height: calc(100vh - 59.5px - 151.133px);
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.homepage-container .hot-items-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.homepage-container .hot-items-container .hot-items-title {
+  font-family: sans-serif;
+  font-size: 3em;
+  padding: 1.5em 0;
+}
+.homepage-container .hot-items-container .items-container {
+  padding: 3em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+.homepage-container .hot-items-container .items-container .rods-results {
+  height: auto;
+  width: 230px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  border: 1px solid black;
+}
+.homepage-container .hot-items-container .items-container .rods-results a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homepage-container .hot-items-container .items-container .rods-results img {
+  left: -70px;
+  height: 230px;
+}
+.homepage-container .hot-items-container .items-container .rods-results .rod-result-name {
+  text-align: center;
+  padding: 0.7em 0;
+  height: 60px;
+  width: 100%;
+  border-top: 1px solid black;
+}
+.homepage-container .hot-items-container .items-container .rods-results .rod-result-price {
+  padding: 0.8em 0;
+}
+.homepage-container .hot-items-container .shop-all-button-container {
+  padding: 3em 0;
+}
+.homepage-container .hot-items-container .shop-all-button-container .shop-all-button {
+  font-size: 1.5em;
+  padding: 0.2em 1em;
+  border: 1px solid black;
+}
+.homepage-container .tips-and-tricks-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em 0;
+}
+.homepage-container .tips-and-tricks-container .tips-and-tricks-title {
+  padding: 2em 0;
+  font-size: 3em;
+  font-family: sans-serif;
+}
+.homepage-container .tips-and-tricks-container .tips-and-tricks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5em;
+}
+.homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  font-family: sans-serif;
+}
+.homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers .tips-and-tricks-image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers .tips-and-tricks-image-container .tips-and-tricks-image {
+  height: 300px;
+}
+.homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers .tips-and-tricks-text {
+  padding: 1em 0;
+  text-align: center;
+}
+.homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers .tips-and-tricks-description {
+  text-align: justify;
+  padding: 0.4em;
+}/*# sourceMappingURL=homepage.css.map */

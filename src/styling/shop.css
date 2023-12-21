@@ -1,0 +1,46 @@
+.shop-container {
+  min-height: calc(100vh - 59.5px - 151.133px);
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.shop-container .shop-navigation-container .shop-navigation-title {
+  font-family: sans-serif;
+  padding: 2em 0;
+  font-size: 2.5em;
+}
+.shop-container .shop-navigation-container .shop-navigation {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers {
+  border: 1px solid #00b4d8;
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .nav-title-container {
+  position: absolute;
+  color: white;
+  background-color: black;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  padding: 2em 0;
+  font-family: sans-serif;
+}
+.shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers img {
+  height: 100%;
+}
+.shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .spinning-nav-image {
+  position: absolute;
+  right: -60px;
+}
+.shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .combo-nav-image {
+  position: absolute;
+  right: -60px;
+}/*# sourceMappingURL=shop.css.map */

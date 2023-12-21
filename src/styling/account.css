@@ -1,0 +1,86 @@
+.account-section {
+  min-height: calc(100vh - 59.5px - 151.133px);
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.account-section .settings-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em 0;
+}
+.account-section .settings-page .settings-information-container {
+  width: 80%;
+  padding: 2.5em 0.5em;
+}
+.account-section .settings-page .settings-information-container .information-title-text {
+  font-family: sans-serif;
+  padding-bottom: 0.5em;
+}
+.account-section .settings-page .settings-information-container .information-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 3em;
+  gap: 3em;
+  background-color: #00b4d8;
+  width: 100%;
+}
+.account-section .settings-page .settings-information-container .information-container div {
+  width: 20em;
+}
+.account-section .settings-page .settings-information-container .information-container div p {
+  font-family: sans-serif;
+  padding-bottom: 0.5em;
+}
+.account-section .settings-page .settings-information-container .information-container div input {
+  font-family: sans-serif;
+  padding: 0.3em;
+  width: 100%;
+  border: 1px solid black;
+}
+.account-section .settings-page .settings-address-container {
+  width: 80%;
+  padding: 2.5em 0.5em;
+}
+.account-section .settings-page .settings-address-container .address-title-text {
+  font-family: sans-serif;
+  padding-bottom: 0.5em;
+}
+.account-section .settings-page .settings-address-container .address-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.account-section .settings-page .settings-address-container .address-container div {
+  width: 100%;
+}
+.account-section .settings-page .settings-address-container .address-container div p {
+  font-family: sans-serif;
+  padding: 1.7em 0 0.6em 0;
+}
+.account-section .settings-page .settings-address-container .address-container div input {
+  font-family: sans-serif;
+  padding: 0.3em;
+  width: 100%;
+  border: 1px solid black;
+}
+.account-section .settings-page button {
+  background-color: white;
+  width: 8.5em;
+  border: 1px solid black;
+  border-radius: 0.3em;
+  padding: 0.2em;
+  font-family: sans-serif;
+  transition: 0.1s all linear;
+}
+.account-section .settings-page button:hover {
+  background-color: #69c9ff;
+  color: white;
+  border: 1px solid #69c9ff;
+}/*# sourceMappingURL=account.css.map */

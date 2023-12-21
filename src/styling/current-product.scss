@@ -1,0 +1,81 @@
+.current-product-container {
+    min-height: calc(100vh - 59.5px - 151.133px);
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    // border: 1px solid red;
+    // background-color: antiquewhite;
+
+    .current-product {
+        // background-color: aqua;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 7em;
+
+        .product-image-container {
+            // background-color: pink;
+            width: 50%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                // position: absolute;
+                // left: -30px;
+                // height: 100%;
+                width: 110%;
+            }
+        }
+
+        .product-information-container {
+            // background-color: greenyellow;
+            width: 50%;
+            // padding: 0 1em 0 2em;
+            font-family: sans-serif;
+
+            .product-information-name {
+                font-size: 2.5em;
+                padding: .7em 0;
+                margin-left: .2em;
+            }
+            
+            .product-information-price {
+                margin-left: .2em;
+                // padding: .7em 0;
+            }
+
+            .product-add-to-cart-button-container {
+                padding: 2.5em 0;
+                // width: 100%;
+                // background-color: aquamarine;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                .product-add-to-cart-button {
+                    font-size: 1.2em;
+                    padding: .2em 0;
+                    width: 200px;
+                    border: 1px solid black;
+                    // margin-left: auto;
+                }
+            }
+        }
+    }
+
+    .current-product-description-container {
+        font-family: sans-serif;
+        padding: 4em 0;
+        // background-color: aliceblue;
+
+        .product-description-title {
+            padding: 1em 2em;
+        }
+        
+        .product-description {
+            padding: 0 3em;
+            line-height: 25px;
+        }
+    }
+}
