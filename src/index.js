@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import './styling/global.css'
 
@@ -17,7 +17,7 @@ import Footer from './components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <NavigationBar />
     <Routes>
       <Route path='/' element={<Homepage />} />
@@ -32,6 +32,6 @@ root.render(
     </Routes>
     <Footer />
     {/* <App /> */}
-  </BrowserRouter>
+  </HashRouter>
 );
 
