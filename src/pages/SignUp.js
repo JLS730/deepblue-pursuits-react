@@ -32,7 +32,7 @@ const SignUp = () => {
     function handleCurrentUserLoggedIn() {
         onAuthStateChanged(auth, (user) => {
           if (user) {
-            navigate('/account')
+            navigate('/home')
           } else {
 
           }

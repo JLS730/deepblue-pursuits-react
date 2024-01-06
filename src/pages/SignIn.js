@@ -49,7 +49,7 @@ const SignIn = () => {
               const currentUser = user;
 
               if(user) {
-                navigate('/')
+                navigate('/home')
                 }
 
               console.log(currentUser)

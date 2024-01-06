@@ -20,8 +20,8 @@ root.render(
   <HashRouter>
     <NavigationBar />
     <Routes>
-      <Route path='/' element={<Homepage />} />
-      <Route path='/sign-in' element={<SignIn />} />
+      <Route path='/home' element={<Homepage />} />
+      <Route path='/' element={<SignIn />} />
       <Route path='/sign-up' element={<SignUp />} />
       <Route path='/account' element={<Account />} />
       <Route path='/shop' element={<Shop />} />

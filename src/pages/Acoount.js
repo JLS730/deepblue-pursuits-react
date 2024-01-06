@@ -38,6 +38,7 @@ const Account = () => {
 
     if(currentUserInformation.uid !== undefined) {
       handleGetUserInformation()
+      handleUserSubmittedInformation()
     }
   }, [currentUserInformation])
 
@@ -96,36 +97,13 @@ const Account = () => {
       console.log('Tis Working')
     }
 
-    console.log(Object.values(docSnap.data()))
+    console.log(docSnap.data())
   }
 
   return (
       <section className="account-section">
         
         <div className="settings-page">
-            <div className="settings-information-container">
-              {/* <h2 className="about-you-title-text">Past Trips</h2>
-
-              <div className="about-you-container">
-                <div className="about-you-first-name-container">
-                  <p className="first-name-text">First Name</p>
-                  <input type="text" placeholder='First Name' className="first-name-input" ref={firstNameRef} />
-                </div>
-                <div className="about-you-last-name-container">
-                  <p className="last-name-text">Last Name</p>
-                  <input type="text" placeholder='Last Name' className="last-name-input" ref={lastNameRef}/>
-                </div>
-                <div className="about-you-phone-container">
-                  <p className="phone-text">Phone Number</p>
-                  <input type="tel" placeholder='XXX-XXX-XXXX' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxLength="12" className="phone-input" ref={phoneNumberRef} required />
-                </div>
-                <div className="about-you-birthdate-container">
-                  <p className="birthdate-text">Birthdate</p>
-                  <input type="date"  className="birthdate-input" ref={birthDateRef} />
-                </div>
-              </div> */}
-            </div>
-            
             <div className="settings-information-container">
               <h2 className="information-title-text">Information</h2>
 

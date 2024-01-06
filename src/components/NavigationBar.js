@@ -13,6 +13,7 @@ import '../styling/navigation-bar.css'
 
 export default function NavigationBar() {
     const [testSwitch, setTestSwitch] = useState(false)
+    const [anonSwitch, setAnonSwitch] = useState(false)
     const [cartCount, setCartCount] = useState([])
     const [currentUserInformation, setCurrentUserInformation] = useState({})
 
@@ -24,7 +25,10 @@ export default function NavigationBar() {
     const firestoreDB = getFirestore(app)
 
     useEffect(() => {
-        // setTestSwitch(!testSwitch)
+        if(currentUserInformation.isAnonymous === true) {
+            setAnonSwitch(true)
+        }
+
         handleCurrentUserLoggedIn()
         handleLoginCheck()
         
@@ -89,7 +93,7 @@ export default function NavigationBar() {
             <div className="navigation-bar-right">
                 <ul className="navigation-links">
                     {/* <Link to='/'>Home</Link> */}
-                    {testSwitch === false ? <Link to='/sign-in'>Sign-in</Link> : null}
+                    {testSwitch === false ? <Link to='/'>Sign-in</Link> : null}
                     {testSwitch === true ? <Link to='/account'>Account</Link> : null}
                     {/* <Link to='/sign-in'>Sign-in</Link> */}
                     {/* <Link to='/'>First</Link> */}
