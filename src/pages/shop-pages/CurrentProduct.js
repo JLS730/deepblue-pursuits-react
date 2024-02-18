@@ -13,6 +13,8 @@ import { productsImages } from '../../productImages'
 
 import '../../styling/current-product.css'
 
+import NavigationBar from '../../components/NavigationBar';
+
 export default function CurrentProduct() {
   const { id } = useParams()
 
@@ -24,6 +26,9 @@ export default function CurrentProduct() {
   const [currentUserInformation, setCurrentUserInformation] = useState({})
   const [itemAddedToggle, setItemAddedToggle] = useState(false)
   const [cartCount, setCartCount] = useState([])
+  const [renderSwitch, setRenderSwitch] = useState(false)
+
+  const [cartNumber, setCartNumber] = useState(0)
 
   let productImage = []
 
@@ -35,33 +40,34 @@ export default function CurrentProduct() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(cartCount.length !== 0) {
+    if (cartCount.length !== 0) {
       handleItemCheck()
       return
     }
 
     handleLoginCheck()
 
-    if(currentUserInformation.uid !== undefined) {
+    if (currentUserInformation.uid !== undefined) {
       handleGetCartCount()
-      
+
       products.rods.forEach(item => {
-        if(item.id == productId) {
+        if (item.id == productId) {
           setCurrentProduct(item)
           setCurrentProductImage([item.image])
         }
       })
     }
 
+    console.log(cartNumber)
 
-    console.log(productType)
 
-    
-  }, [currentUserInformation, cartCount])
+  }, [currentUserInformation, cartCount, renderSwitch])
 
   function handleItemCheck() {
+    setCartNumber(cartCount.length)
+
     cartCount.filter(item => {
-      if(item.information.name === currentProduct.name) {
+      if (item.information.name === currentProduct.name) {
         setItemAddedToggle(true)
       }
 
@@ -73,7 +79,7 @@ export default function CurrentProduct() {
 
   async function handleGetCartCount() {
     const querySnapshot = await getDocs(collection(firestoreDB, currentUserInformation.uid, 'Cart', 'Items'));
-    
+
     querySnapshot.forEach((doc) => {
       setCartCount((oldArray) => [...oldArray, doc.data()])
       // console.log(doc.id, " => ", doc.data());
@@ -83,38 +89,34 @@ export default function CurrentProduct() {
 
   function handleUserCartCount() {
     setDoc(doc(firestoreDB, currentUserInformation.uid, 'Cart', 'Items', currentProduct.name), {
-        information: {
-          name: currentProduct.name,
-          price: currentProduct.price,
-          type: productType
-        }
+      information: {
+        name: currentProduct.name,
+        price: currentProduct.price,
+        type: productType
+      }
     });
 
     setItemAddedToggle(true)
-
-    setTimeout(() => {
-      navigate(0)
-    }, 200)
   }
 
   function handleLoginCheck() {
-      onAuthStateChanged(auth, (user) => {
-          if(user) {
-              const uid = user.uid
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid
 
-              setCurrentUserInformation(user)
-              console.log(uid)
-          } else {
-              console.log('No User Found!')
-          }
-      })
+        setCurrentUserInformation(user)
+        console.log(uid)
+      } else {
+        console.log('No User Found!')
+      }
+    })
   }
 
   async function handleGetUserInformation() {
     const docRef = doc(firestoreDB, currentUserInformation.uid, 'Cart', 'Items')
     const docSnap = await getDoc(docRef)
 
-    if(docSnap.data()) {
+    if (docSnap.data()) {
       // firstNameRef.current.value = docSnap.data().first
       // lastNameRef.current.value = docSnap.data().last
       // phoneNumberRef.current.value = docSnap.data().phone
@@ -134,26 +136,35 @@ export default function CurrentProduct() {
   }
 
   return (
-    <div className="current-product-container">
-      <div className="current-product">
-        <div className="product-image-container">
-          <img src={currentProductImage} alt="" />
-        </div>
-        <div className="product-information-container">
-          <h2 className="product-information-name">{currentProduct.name}</h2>
-          <h2 className="product-information-price">$ {currentProduct.price}</h2>
-          <div className="product-add-to-cart-button-container">
-            {itemAddedToggle === false ? <button className="product-add-to-cart-button" onClick={() => handleUserCartCount()}>Add To Cart</button> : null}
-            {itemAddedToggle === true ? <button className="product-add-to-cart-button" disabled>Added</button> : null}
+    <>
+    <NavigationBar count={cartNumber} />
+      <div className="current-product-container">
+        <div className="current-product">
+          <div className="product-image-container">
+            <img src={currentProductImage} alt="" />
+          </div>
+          <div className="product-information-container">
+            <h2 className="product-information-name">{currentProduct.name}</h2>
+            <h2 className="product-information-price">$ {currentProduct.price}</h2>
+            <div className="product-add-to-cart-button-container">
+              {itemAddedToggle === false ? <button className="product-add-to-cart-button" onClick={() => {
+                handleUserCartCount()
+
+                setTimeout(() => {
+                  setCartNumber(cartNumber + 1)
+                }, 200);
+              }}>Add To Cart</button> : null}
+              {itemAddedToggle === true ? <button className="product-add-to-cart-button" disabled>Added</button> : null}
+            </div>
           </div>
         </div>
+        <div className="current-product-description-container">
+          <h2 className="product-description-title">Product Description</h2>
+          <p className="product-description">{currentProduct.description}</p>
+        </div>
+        <button onClick={() => console.log(cartNumber)}>Test</button>
+        {/* <button onClick={() => handleGetFavoritesInformation()}>Test</button> */}
       </div>
-      <div className="current-product-description-container">
-        <h2 className="product-description-title">Product Description</h2>
-        <p className="product-description">{currentProduct.description}</p>
-      </div>
-      <button onClick={() => console.log(currentProduct)}>Test</button>
-      {/* <button onClick={() => handleGetFavoritesInformation()}>Test</button> */}
-    </div>
+    </>
   )
 }

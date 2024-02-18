@@ -8,15 +8,18 @@ import { getAuth, signInAnonymously, onAuthStateChanged, signOut } from "firebas
 import { firebaseConfig } from '../scripts/firebase'
 import { initializeApp } from "firebase/app";
 
-import { doc, setDoc, getFirestore } from "firebase/firestore";
+import { doc, setDoc, getDocs, collection, getFirestore } from "firebase/firestore";
 
 import { products } from '../products'
+
+import NavigationBar from '../components/NavigationBar';
 
 import homepageBannerImage from '../images/Site Images/man_fishing.jpg'
 import tipImage00 from '../images/Site Images/homepage-tips-and-tricks/tips-and-tricks-1.jpg'
 
 export default function Homepage() {
   const [currentUserInformation, setCurrentUserInformation] = useState({})
+  const [cartCount, setCartCount] = useState([])
 
   const auth = getAuth();
 
@@ -24,18 +27,12 @@ export default function Homepage() {
   const firestoreDB = getFirestore(app)
 
   useEffect(() => {
-    // if(currentUserInformation.uid !== undefined) {
-    //   setDoc(doc(firestoreDB, currentUserInformation.uid, 'Cart', 'Items', 'Temp Cart'), {
-    //     information: {
-    //       name: '',
-    //       price: '',
-    //       type: ''
-    //     }
-    //   });
-    //   return
-    // }
+    handleCheckUser()
 
-    // handleAnonymousLoggin()
+    if (currentUserInformation.uid !== undefined) {
+      handleGetCartCount()
+    }
+
   }, [currentUserInformation])
 
   function handleSignOut() {
@@ -62,21 +59,30 @@ export default function Homepage() {
   function handleCheckUser() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
+       
         const uid = user.uid;
         setCurrentUserInformation(user)
         console.log(user)
-        // ...
+        
       } else {
-        // User is signed out
-        // ...
+
       }
     });
   }
 
+  async function handleGetCartCount() {
+    const querySnapshot = await getDocs(collection(firestoreDB, currentUserInformation.uid, 'Cart', 'Items'));
+
+    querySnapshot.forEach((doc) => {
+      setCartCount((oldArray) => [...oldArray, doc.data()])
+      // console.log(doc.id, " => ", doc.data());
+    });
+    console.log(cartCount)
+  }
+
   return (
     <>
+    <NavigationBar count={cartCount.length}/>
     {/* <button onClick={() => handleAnonymousLoggin()}>Create Anon</button>
     <button onClick={() => handleCheckUser()}>Check</button>
     <button onClick={() => handleSignOut()}>Sign Out</button> */}

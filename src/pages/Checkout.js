@@ -9,6 +9,7 @@ import { initializeApp } from "firebase/app";
 import '../styling/checkout.css'
 
 import PayPal from '../components/PayPal';
+import NavigationBar from '../components/NavigationBar';
 
 import { products } from '../products'
 
@@ -17,7 +18,7 @@ function Checkout() {
   const [cartCount, setCartCount] = useState([])
   const [currentUserInformation, setCurrentUserInformation] = useState({})
   const [totalPrice, setTotalPrice] = useState(0)
-  
+
   const auth = getAuth()
 
   const app = initializeApp(firebaseConfig);
@@ -26,7 +27,7 @@ function Checkout() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(cartCount.length !== 0) {
+    if (cartCount.length !== 0) {
       handleTotalPrice()
       console.log('working')
       return
@@ -34,7 +35,7 @@ function Checkout() {
 
     handleLoginCheck()
 
-    if(currentUserInformation.uid !== undefined) {
+    if (currentUserInformation.uid !== undefined) {
       handleGetCartCount()
       console.log('caught')
     }
@@ -44,20 +45,20 @@ function Checkout() {
 
   function handleLoginCheck() {
     onAuthStateChanged(auth, (user) => {
-        if(user) {
-            const uid = user.uid
+      if (user) {
+        const uid = user.uid
 
-            setCurrentUserInformation(user)
-            console.log(uid)
-        } else {
-            console.log('No User Found!')
-        }
+        setCurrentUserInformation(user)
+        console.log(uid)
+      } else {
+        console.log('No User Found!')
+      }
     })
   }
 
   async function handleGetCartCount() {
     const querySnapshot = await getDocs(collection(firestoreDB, currentUserInformation.uid, 'Cart', 'Items'));
-    
+
     querySnapshot.forEach((doc) => {
       setCartCount((oldArray) => [...oldArray, doc.data()])
       // console.log(doc.id, " => ", doc.data());
@@ -66,14 +67,14 @@ function Checkout() {
   }
 
   function handleTotalPrice() {
-      let price = 0
+    let price = 0
 
-      for(let i = 0; i < cartCount.length; i++) {
-          price += cartCount[i].information.price
-      }
+    for (let i = 0; i < cartCount.length; i++) {
+      price += cartCount[i].information.price
+    }
 
-      setTotalPrice(price.toFixed(2))
-      console.log(totalPrice)
+    setTotalPrice(price.toFixed(2))
+    console.log(totalPrice)
   }
 
   async function handleRemoveCartItem(name) {
@@ -84,12 +85,13 @@ function Checkout() {
   // console.log(products.products)
 
   return (
-
-    <div className="checkout-container">
-      <div className="cart-items-container">
-        <h2 className="cart-items-title">Checkout</h2>
+    <>
+      <NavigationBar count={cartCount.length} />
+      <div className="checkout-container">
         <div className="cart-items-container">
-          {/* <div className="cart-items">
+          <h2 className="cart-items-title">Checkout</h2>
+          <div className="cart-items-container">
+            {/* <div className="cart-items">
             <span className="quantity-text">Quantity: <span className="quantity-count-text">1</span></span>
             <span className="cart-item-name">PlaceHolder Item #1</span>
             <span className="cart-item-price">$99.99</span>
@@ -104,32 +106,33 @@ function Checkout() {
             <span className="cart-item-name">PlaceHolder Item #1</span>
             <span className="cart-item-price">$99.99</span>
           </div> */}
-          {cartCount.length === 0 ? null : cartCount.map((item, x) => {
-            console.log(item)
+            {cartCount.length === 0 ? null : cartCount.map((item, x) => {
+              console.log(item)
 
-            return (
-              <div className="cart-items">
-                <div className="quantity-container">
-                  <span className="quantity-text">Quantity: <span className="quantity-count-text">1</span></span>
-                  <i className="fa-solid fa-trash" onClick={() => handleRemoveCartItem(item.information.name)}></i>
+              return (
+                <div className="cart-items">
+                  <div className="quantity-container">
+                    <span className="quantity-text">Quantity: <span className="quantity-count-text">1</span></span>
+                    <i className="fa-solid fa-trash" onClick={() => handleRemoveCartItem(item.information.name)}></i>
+                  </div>
+                  <span className="cart-item-name">{item.information.name}</span>
+                  <span className="cart-item-price">{item.information.price}</span>
                 </div>
-                <span className="cart-item-name">{item.information.name}</span>
-                <span className="cart-item-price">{item.information.price}</span>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
+          <div className="total-price-container">
+            <span className="total-price-text">Total:</span>
+            <span>{totalPrice === undefined ? null : totalPrice}</span>
+          </div>
         </div>
-        <div className="total-price-container">
-          <span className="total-price-text">Total:</span>
-          <span>{totalPrice === undefined ? null : totalPrice}</span>
+        <div className="paypal-container">
+          {checkout ? <PayPal /> : <button onClick={() => setCheckout(true)}>Checkout</button>}
+          {/* <button onClick={() => handleCartItems()}>Test</button> */}
+          <button onClick={() => console.log(cartCount)}>Test 2</button>
         </div>
       </div>
-      <div className="paypal-container">
-        {checkout ? <PayPal /> : <button onClick={() => setCheckout(true)}>Checkout</button>}
-        {/* <button onClick={() => handleCartItems()}>Test</button> */}
-        <button onClick={() => console.log(cartCount)}>Test 2</button>
-      </div>
-    </div>
+    </>
   );
 }
 

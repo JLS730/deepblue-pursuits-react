@@ -18,7 +18,7 @@ import Footer from './components/Footer';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HashRouter>
-    <NavigationBar />
+    {/* <NavigationBar /> */}
     <Routes>
       <Route path='/home' element={<Homepage />} />
       <Route path='/' element={<SignIn />} />

@@ -3,16 +3,19 @@ import { useState, useEffect, useRef } from 'react'
 
 import '../styling/account.css'
 
+import NavigationBar from '../components/NavigationBar';
+
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 import { firebaseConfig } from '../scripts/firebase'
 import { initializeApp } from "firebase/app";
 
-import { doc, getFirestore, getDoc, setDoc } from "firebase/firestore";
+import { doc, getFirestore, getDocs, collection, getDoc, setDoc } from "firebase/firestore";
 
 const Account = () => {
   const [currentUserInformation, setCurrentUserInformation] = useState({})
+  const [cartCount, setCartCount] = useState([])
 
   const firstNameRef = useRef(null)
   const lastNameRef = useRef(null)
@@ -36,9 +39,10 @@ const Account = () => {
   useEffect(() => {
     handleLoginCheck()
 
-    if(currentUserInformation.uid !== undefined) {
+    if (currentUserInformation.uid !== undefined) {
       handleGetUserInformation()
       handleUserSubmittedInformation()
+      handleGetCartCount()
     }
   }, [currentUserInformation])
 
@@ -52,7 +56,7 @@ const Account = () => {
 
   function handleLoginCheck() {
     onAuthStateChanged(auth, (user) => {
-      if(user) {
+      if (user) {
         const uid = user.uid
 
         setCurrentUserInformation(user)
@@ -82,7 +86,7 @@ const Account = () => {
     const docRef = doc(firestoreDB, currentUserInformation.uid, 'Information')
     const docSnap = await getDoc(docRef)
 
-    if(docSnap.data()) {
+    if (docSnap.data()) {
       firstNameRef.current.value = docSnap.data().first
       lastNameRef.current.value = docSnap.data().last
       phoneNumberRef.current.value = docSnap.data().phone
@@ -100,77 +104,91 @@ const Account = () => {
     console.log(docSnap.data())
   }
 
+  async function handleGetCartCount() {
+    const querySnapshot = await getDocs(collection(firestoreDB, currentUserInformation.uid, 'Cart', 'Items'));
+
+    querySnapshot.forEach((doc) => {
+      setCartCount((oldArray) => [...oldArray, doc.data()])
+      // console.log(doc.id, " => ", doc.data());
+    });
+    console.log(cartCount)
+  }
+
   return (
+    <>
+    <NavigationBar count={cartCount.length} />
       <section className="account-section">
-        
+
         <div className="settings-page">
-            <div className="settings-information-container">
-              <h2 className="information-title-text">Information</h2>
+          <div className="settings-information-container">
+            <h2 className="information-title-text">Information</h2>
 
-              <div className="information-container">
-                <div className="information-first-name-container">
-                  <p className="first-name-text">First Name</p>
-                  <input type="text" placeholder='First Name' className="first-name-input" ref={firstNameRef} />
-                </div>
-                <div className="information-last-name-container">
-                  <p className="last-name-text">Last Name</p>
-                  <input type="text" placeholder='Last Name' className="last-name-input" ref={lastNameRef}/>
-                </div>
-                <div className="information-phone-container">
-                  <p className="phone-text">Phone Number</p>
-                  <input type="tel" placeholder='XXX-XXX-XXXX' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxLength="12" className="phone-input" ref={phoneNumberRef} required />
-                </div>
-                <div className="information-birthdate-container">
-                  <p className="birthdate-text">Birthdate</p>
-                  <input type="date"  className="birthdate-input" ref={birthDateRef} />
-                </div>
+            <div className="information-container">
+              <div className="information-first-name-container">
+                <p className="first-name-text">First Name</p>
+                <input type="text" placeholder='First Name' className="first-name-input" ref={firstNameRef} />
+              </div>
+              <div className="information-last-name-container">
+                <p className="last-name-text">Last Name</p>
+                <input type="text" placeholder='Last Name' className="last-name-input" ref={lastNameRef} />
+              </div>
+              <div className="information-phone-container">
+                <p className="phone-text">Phone Number</p>
+                <input type="tel" placeholder='XXX-XXX-XXXX' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxLength="12" className="phone-input" ref={phoneNumberRef} required />
+              </div>
+              <div className="information-birthdate-container">
+                <p className="birthdate-text">Birthdate</p>
+                <input type="date" className="birthdate-input" ref={birthDateRef} />
               </div>
             </div>
+          </div>
 
-            <div className="settings-address-container">
-              <h2 className="address-title-text">Address</h2>
+          <div className="settings-address-container">
+            <h2 className="address-title-text">Address</h2>
 
-              <div className="address-container">
-                <div className="address-country-container">
-                  <p className="country-text">Country</p>
-                  <input type="text" placeholder='United States' className="country-input" ref={countryRef}/>
-                </div>
-                <div className="address-line-1-container">
-                  <p className="address-line-1-text">Address line 1</p>
-                  <input type="text" placeholder='Street address, P.O Box' className="address-line-1-input" ref={addressOneRef} />
-                </div>
-                <div className="address-line-2-container">
-                  <p className="address-line-2-text">Address line 2</p>
-                  <input type="text" placeholder='Apt, suite, unit, building, floor, etc.' className="address-line-2-input" ref={addressTwoRef} />
-                </div>
-                <div className="city-container">
-                  <p className="city-text">City</p>
-                  <input type="text" placeholder='' className="city-input" ref={cityRef}/>
-                </div>
-                <div className="state-container">
-                  <p className="state-text">State</p>
-                  <input type="text" placeholder='' className="state-input" ref={stateRef} />
-                </div>
-                <div className="zip-code-container">
-                  <p className="zip-code-text">ZIP Code</p>
-                  <input type="text" placeholder='' className="zip-code-input" pattern='[0-9]{3}' ref={zipCodeRef} required />
-                </div>
-                
+            <div className="address-container">
+              <div className="address-country-container">
+                <p className="country-text">Country</p>
+                <input type="text" placeholder='United States' className="country-input" ref={countryRef} />
               </div>
+              <div className="address-line-1-container">
+                <p className="address-line-1-text">Address line 1</p>
+                <input type="text" placeholder='Street address, P.O Box' className="address-line-1-input" ref={addressOneRef} />
+              </div>
+              <div className="address-line-2-container">
+                <p className="address-line-2-text">Address line 2</p>
+                <input type="text" placeholder='Apt, suite, unit, building, floor, etc.' className="address-line-2-input" ref={addressTwoRef} />
+              </div>
+              <div className="city-container">
+                <p className="city-text">City</p>
+                <input type="text" placeholder='' className="city-input" ref={cityRef} />
+              </div>
+              <div className="state-container">
+                <p className="state-text">State</p>
+                <input type="text" placeholder='' className="state-input" ref={stateRef} />
+              </div>
+              <div className="zip-code-container">
+                <p className="zip-code-text">ZIP Code</p>
+                <input type="text" placeholder='' className="zip-code-input" pattern='[0-9]{3}' ref={zipCodeRef} required />
+              </div>
+
             </div>
-            <button onClick={() => handleUserSubmittedInformation()}>Save Information</button>
-            {/* <button onClick={() => handleGetUserInformation()}>Check User</button>
+          </div>
+          <button onClick={() => handleUserSubmittedInformation()}>Save Information</button>
+          {/* <button onClick={() => handleGetUserInformation()}>Check User</button>
             <button onClick={() => {
               mondayRef.current.checked = true
             }}>Check Mark Test</button> */}
-            <div>
-        <button onClick={() => handleSignOut()}>Logout</button>
-        <button onClick={() => handleGetUserInformation()}>Check Login</button>
-        {/* <button onClick={() => handleLoginCheck()}>Check Login</button> */}
-      </div>
+          <div>
+            <button onClick={() => handleSignOut()}>Logout</button>
+            <button onClick={() => handleGetUserInformation()}>Check Login</button>
+            {/* <button onClick={() => handleLoginCheck()}>Check Login</button> */}
           </div>
+        </div>
       </section>
-    )
+    </>
+  )
+
 }
 
 export default Account

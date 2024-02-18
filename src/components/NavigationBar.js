@@ -11,7 +11,7 @@ import companyLogo from '../images/Site Images/company_logo_2.png'
 
 import '../styling/navigation-bar.css'
 
-export default function NavigationBar() {
+export default function NavigationBar(props) {
     const [testSwitch, setTestSwitch] = useState(false)
     const [anonSwitch, setAnonSwitch] = useState(false)
     const [cartCount, setCartCount] = useState([])
@@ -38,7 +38,7 @@ export default function NavigationBar() {
         }
 
         console.log(currentUserInformation.uid)
-    }, [currentUserInformation])
+    }, [currentUserInformation, props])
 
     function handleLoginCheck() {
         onAuthStateChanged(auth, (user) => {
@@ -102,7 +102,8 @@ export default function NavigationBar() {
                     <div className="shopping-cart-container">
                         <i className="fa-solid fa-cart-shopping fa-xl"></i>
                         <div className="cart-count-container">
-                            <span>{cartCount.length}</span>
+                            <span>{props.count}</span>
+                            {/* <span>{cartCount.length}</span> */}
                         </div>
                     </div>
                 </Link>
