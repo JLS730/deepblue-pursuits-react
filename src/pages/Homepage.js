@@ -16,6 +16,10 @@ import NavigationBar from '../components/NavigationBar';
 
 import homepageBannerImage from '../images/Site Images/man_fishing.jpg'
 import tipImage00 from '../images/Site Images/homepage-tips-and-tricks/tips-and-tricks-1.jpg'
+import bannerImage0 from '../images/Site Images/homepage-banner-images/banner-reel-image.png'
+import bannerImage1 from '../images/Site Images/homepage-banner-images/banner-rod-image.png'
+import saleImage0 from '../images/Site Images/sales-banner-images/sale-image-1.png'
+import saleImage1 from '../images/Site Images/sales-banner-images/sale-image-2.jpg'
 
 export default function Homepage() {
   const [currentUserInformation, setCurrentUserInformation] = useState({})
@@ -53,17 +57,17 @@ export default function Homepage() {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ...
-    });
+      });
   }
-  
+
   function handleCheckUser() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       
+
         const uid = user.uid;
         setCurrentUserInformation(user)
         console.log(user)
-        
+
       } else {
 
       }
@@ -82,40 +86,92 @@ export default function Homepage() {
 
   return (
     <>
-    <NavigationBar count={cartCount.length}/>
-    {/* <button onClick={() => handleAnonymousLoggin()}>Create Anon</button>
+      <NavigationBar count={cartCount.length} />
+      {/* <button onClick={() => handleAnonymousLoggin()}>Create Anon</button>
     <button onClick={() => handleCheckUser()}>Check</button>
     <button onClick={() => handleSignOut()}>Sign Out</button> */}
       <div className="homepage-banner-image-container">
+        <div className="banner-catergories">
+          <table>
+            <tr>
+              <th><i className="fa-solid fa-bars"></i> Popular Suggestions</th>
+            </tr>
+            <tr>
+              <td>Fishing Rods</td>
+            </tr>
+            <tr>
+              <td>Fishing Accessories</td>
+            </tr>
+            <tr>
+              <td>Fishing Reels</td>
+            </tr>
+            <tr>
+              <td>Rod & Reel Combos</td>
+            </tr>
+            <tr>
+              <td>Swimbaits</td>
+            </tr>
+            <tr>
+              <td>Species</td>
+            </tr>
+          </table>
+
+        </div>
         <img src={homepageBannerImage} alt="" className="homepage-banner-image" />
+        <div className="banner-suggestion-container">
+          <div className="suggestion-container-1">
+            <img src={bannerImage0} alt="" />
+            <div className="shop-suggestion-container">
+              <h2 className="product-title">Brand Fishing Rod</h2>
+              <button className="product-shop-button">Shop Now</button>
+            </div>
+          </div>
+          <div className="suggestion-container-2">
+            <img src={bannerImage1} alt="" />
+            <div className="shop-suggestion-container">
+              <h2 className="product-title">Brand Fishing Reel</h2>
+              <button className="product-shop-button">Shop Now</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className='homepage-container'>   
+      <div className='homepage-container'>
         <div className="hot-items-container">
-          <h2 className="hot-items-title">New Hot Items</h2>
+          <h2 className="hot-items-title">Top Products</h2>
           <div className="items-container">
             <div className="rods-results">
-                <Link to={`/shop/product/casting_${products.rods[0].id}`}><img src={products.rods[0].image} alt="" key={products.rods[0].id} /></Link>
-                <span className="rod-result-name">{products.rods[0].name}</span>
-                <span className="rod-result-price">${products.rods[0].price}</span>
+              <Link to={`/shop/product/casting_${products.rods[0].id}`}><img src={products.rods[0].image} alt="" key={products.rods[0].id} /></Link>
+              <span className="rod-result-name">{products.rods[0].name}</span>
+              <span className="rod-result-price">${products.rods[0].price}</span>
             </div>
             <div className="rods-results">
-                <Link to={`/shop/product/casting_${products.rods[1].id}`}><img src={products.rods[1].image} alt="" key={products.rods[1].id} /></Link>
-                <span className="rod-result-name">{products.rods[1].name}</span>
-                <span className="rod-result-price">${products.rods[1].price}</span>
+              <Link to={`/shop/product/casting_${products.rods[1].id}`}><img src={products.rods[1].image} alt="" key={products.rods[1].id} /></Link>
+              <span className="rod-result-name">{products.rods[1].name}</span>
+              <span className="rod-result-price">${products.rods[1].price}</span>
             </div>
             <div className="rods-results">
-                <Link to={`/shop/product/casting_${products.rods[2].id}`}><img src={products.rods[2].image} alt="" key={products.rods[2].id} /></Link>
-                <span className="rod-result-name">{products.rods[2].name}</span>
-                <span className="rod-result-price">${products.rods[2].price}</span>
+              <Link to={`/shop/product/casting_${products.rods[2].id}`}><img src={products.rods[2].image} alt="" key={products.rods[2].id} /></Link>
+              <span className="rod-result-name">{products.rods[2].name}</span>
+              <span className="rod-result-price">${products.rods[2].price}</span>
             </div>
             <div className="rods-results">
-                <Link to={`/shop/product/casting_${products.rods[3].id}`}><img src={products.rods[3].image} alt="" key={products.rods[3].id} /></Link>
-                <span className="rod-result-name">{products.rods[3].name}</span>
-                <span className="rod-result-price">${products.rods[3].price}</span>
+              <Link to={`/shop/product/casting_${products.rods[3].id}`}><img src={products.rods[3].image} alt="" key={products.rods[3].id} /></Link>
+              <span className="rod-result-name">{products.rods[3].name}</span>
+              <span className="rod-result-price">${products.rods[3].price}</span>
             </div>
           </div>
           <div className="shop-all-button-container">
-            <Link to='/shop'><button className="shop-all-button">Shop All Rods</button></Link>
+            <Link to='/shop'><button className="shop-all-button">Shop Top Products</button></Link>
+          </div>
+        </div>
+        <div className="homepage-sale-banner-container">
+          <div className="sale-banner">
+            <div className="sale-container-1">
+            <img src={saleImage0} alt="" />
+            </div>
+            <div className="sale-container-2">
+              <img src={saleImage1} alt="" />
+            </div>
           </div>
         </div>
         <div className="tips-and-tricks-container">
