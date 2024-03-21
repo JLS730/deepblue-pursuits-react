@@ -1,17 +1,18 @@
 .homepage-banner-image-container {
-    height: 400px;
+    // height: 400px;
     // overflow: hidden;
     // position: relative;
-    width: 995px;
+    width: 1150px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 5em;
 
     .banner-catergories {
         background-color: #00b4d8;
         width: 20%;
-        height: 331.7px;
+        height: 466px;
+        width: 270px;
 
         table {
             display: flex;
@@ -49,19 +50,28 @@
         }
     }
 
-    .homepage-banner-image {
-        // width: 90%;
-        // height: auto;
-        // position: absolute;
-        margin: 0 auto;
-        width: 50%;
-        border: 1px solid black;
+    .banner-image-container {
+        // background-color: pink;
+        width: 570px;
+        height: 466px;
+        overflow: hidden;
+        
+        .homepage-banner-image {
+            // width: 90%;
+            // height: auto;
+            // position: absolute;
+            margin: 0 auto;
+            width: 130%;
+            // border: 1px solid black;
+        }
     }
+
 
     .banner-suggestion-container {
         // background-color: #00b4d8;
         width: 20%;
-        height: 331.7px;
+        height: 466px;
+        width: 270px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -75,7 +85,7 @@
         }
 
         img {
-            height: 100px;
+            height: 140px;
         }
 
         .suggestion-container-1 {
@@ -85,8 +95,8 @@
                 // background-color: pink;
                 padding: .2em;
                 position: absolute;
-                width: 100px;
-                height: 80px;
+                width: 120px;
+                height: 100px;
                 bottom: 0;
                 right: 0;
                 display: flex;
@@ -96,7 +106,7 @@
                 border: none;
 
                 h2 {
-                    font-size: 1em;
+                    font-size: 1.3em;
                     font-family: "Kanit", sans-serif;
                     font-weight: 400;
                 }
@@ -121,8 +131,8 @@
                 // background-color: pink;
                 padding: .2em;
                 position: absolute;
-                width: 100px;
-                height: 80px;
+                width: 120px;
+                height: 100px;
                 top: 0;
                 left: 0;
                 display: flex;
@@ -132,7 +142,7 @@
                 border: none;
 
                 h2 {
-                    font-size: 1em;
+                    font-size: 1.3em;
                     font-family: "Kanit", sans-serif;
                     font-weight: 400;
                 }
@@ -155,7 +165,7 @@
     align-items: center;
 
     .sale-banner {
-        background-color: pink;
+        // background-color: pink;
         height: 400px;
         width: 1100px;
         display: flex;
@@ -165,9 +175,35 @@
         .sale-container-1 {
             width: 33%;
             height: 100%;
-            background-color: yellow;
+            background-color: #ffffff;
             position: relative;
             overflow: hidden;
+
+            .sales-text-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-family: sans-serif;
+                height: 300px;
+
+                .sale-title {
+                    font-size: .9em;
+                }
+
+                .sale-text {
+                    font-size: 2em;
+                    padding: .8em 0;
+                }
+
+                .sale-button {
+                    padding: .3em 1.5em;
+                    background-color: #00b4d8;
+                    border: none;
+                    color: white;
+                }
+            }
 
             img {
                 height: 220px;
@@ -186,6 +222,15 @@
             height: 100%;
             background-color: aliceblue;
             overflow: hidden;
+            position: relative;
+
+            .image-tint {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+                position: absolute;
+            }
 
             img {
                 width: 100%;
@@ -224,21 +269,22 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 4em;
+            gap: 1em 3em;
             // background-color: pink;
 
             .rods-results {
                 // border: 1px solid blue;
                 height: auto;
-                width: 180px;
+                width: 240px;
+                height: 400px;
                 overflow: hidden;
                 position: relative;
                 display: flex;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
                 flex-direction: column;
                 font-family: sans-serif;
-                border: 1px solid black;
+                // border: 1px solid black;
                 // color: white;
 
                 a {
@@ -253,22 +299,53 @@
                     height: 180px;
                 }
 
+                .results-info-container {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-direction: column;
+                    height: 100px;
+                    // background-color: #8d9f0d;
+                }
+
                 .rod-result-name {
                     text-align: center;
-                    padding: .7em 0;
-                    height: 60px;
+                    // padding: .7em 0;
+                    // height: 60px;
                     width: 100%;
-                    border-top: 1px solid black;
-                    background-color: #00b4d8;
+                    // border-top: 1px solid black;
+                    // background-color: #00b4d8;
                     z-index: 1;
                 }
 
                 .rod-result-price {
-                    padding: .8em 0;
-                    background-color: #00b4d8;
+                    // padding: .8em 0;
+                    // background-color: #00b4d8;
                     width: 100%;
                     text-align: center;
-                    color: white;
+                    // color: white;
+                }
+
+                .result-button-container {
+                    background-color: #00b4d8;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // padding: .3em .5em;
+
+                    i {
+                        color: white;
+                        text-align: center;
+                        padding: .2em .5em;
+                    }
+
+                    button {
+                        border: none;
+                        // margin-left: 1em;
+                        background-color: #010937;
+                        padding: .21em 1em;
+                        color: white;
+                    }
                 }
             }
         }
@@ -280,7 +357,9 @@
             .shop-all-button {
                 font-size: 1.2em;
                 padding: .2em 1em;
-                border: 1px solid black;
+                border: 2px solid #010937;
+                background-color: #00b4d8;
+                color: white;
             }
         }
     }
@@ -322,8 +401,7 @@
                     width: 100%;
 
                     .tips-and-tricks-image {
-                        height: 300px;
-                        // position: absolute;
+                        width: 100%;
                     }
                 }
 

@@ -111,6 +111,21 @@ export default function NavigationBar(props) {
                 <button onClick={() => console.log(totalPrice)}>Test 2</button> */}
             </div>
         </div>
+        <div className="navigation-catergories-container">
+            <ul className="catergories-container">
+                <Link to='#'><li className='catergory-link'>Home</li></Link>
+                <Link to='#'><li className='catergory-link'>Features</li></Link>
+                <Link to='#'><li className='catergory-link'>Products</li></Link>
+                <Link to='#'><li className='catergory-link'>Classes</li></Link>
+                <Link to='#'><li className='catergory-link'>Blog</li></Link>
+                <Link to='#'><li className='catergory-link'>Gallery</li></Link>
+                <Link to='#'><li className='catergory-link'>Contact Us</li></Link>
+            </ul>
+            <div className="search-container">
+                <input className='catergorie-search-input' type="texxt" />
+                <i className="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
     </nav>
   )
 }

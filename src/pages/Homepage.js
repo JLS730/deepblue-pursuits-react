@@ -15,7 +15,9 @@ import { products } from '../products'
 import NavigationBar from '../components/NavigationBar';
 
 import homepageBannerImage from '../images/Site Images/man_fishing.jpg'
-import tipImage00 from '../images/Site Images/homepage-tips-and-tricks/tips-and-tricks-1.jpg'
+import tipImage01 from '../images/Site Images/tips-and-tricks-images/tips-and-tricks-1.jpg'
+import tipImage02 from '../images/Site Images/tips-and-tricks-images/tips-and-tricks-2.jpg'
+import tipImage03 from '../images/Site Images/tips-and-tricks-images/tips-and-tricks-3.jpg'
 import bannerImage0 from '../images/Site Images/homepage-banner-images/banner-reel-image.png'
 import bannerImage1 from '../images/Site Images/homepage-banner-images/banner-rod-image.png'
 import saleImage0 from '../images/Site Images/sales-banner-images/sale-image-1.png'
@@ -117,7 +119,9 @@ export default function Homepage() {
           </table>
 
         </div>
-        <img src={homepageBannerImage} alt="" className="homepage-banner-image" />
+        <div className="banner-image-container">
+          <img src={homepageBannerImage} alt="" className="homepage-banner-image" />
+        </div>
         <div className="banner-suggestion-container">
           <div className="suggestion-container-1">
             <img src={bannerImage0} alt="" />
@@ -141,23 +145,47 @@ export default function Homepage() {
           <div className="items-container">
             <div className="rods-results">
               <Link to={`/shop/product/casting_${products.rods[0].id}`}><img src={products.rods[0].image} alt="" key={products.rods[0].id} /></Link>
-              <span className="rod-result-name">{products.rods[0].name}</span>
-              <span className="rod-result-price">${products.rods[0].price}</span>
+              <div className="results-info-container">
+                <span className="rod-result-name">{products.rods[0].name}</span>
+                <span className="rod-result-price">${products.rods[0].price}</span>
+                <div className="result-button-container">
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <button className="options-button">Select Options</button>
+                </div>
+              </div>
             </div>
             <div className="rods-results">
               <Link to={`/shop/product/casting_${products.rods[1].id}`}><img src={products.rods[1].image} alt="" key={products.rods[1].id} /></Link>
-              <span className="rod-result-name">{products.rods[1].name}</span>
-              <span className="rod-result-price">${products.rods[1].price}</span>
+              <div className="results-info-container">
+                <span className="rod-result-name">{products.rods[1].name}</span>
+                <span className="rod-result-price">${products.rods[1].price}</span>
+                <div className="result-button-container">
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <button className="options-button">Select Options</button>
+                </div>
+              </div>
             </div>
             <div className="rods-results">
               <Link to={`/shop/product/casting_${products.rods[2].id}`}><img src={products.rods[2].image} alt="" key={products.rods[2].id} /></Link>
-              <span className="rod-result-name">{products.rods[2].name}</span>
-              <span className="rod-result-price">${products.rods[2].price}</span>
+              <div className="results-info-container">
+                <span className="rod-result-name">{products.rods[2].name}</span>
+                <span className="rod-result-price">${products.rods[2].price}</span>
+                <div className="result-button-container">
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <button className="options-button">Select Options</button>
+                </div>
+              </div>
             </div>
             <div className="rods-results">
               <Link to={`/shop/product/casting_${products.rods[3].id}`}><img src={products.rods[3].image} alt="" key={products.rods[3].id} /></Link>
-              <span className="rod-result-name">{products.rods[3].name}</span>
-              <span className="rod-result-price">${products.rods[3].price}</span>
+              <div className="results-info-container">
+                <span className="rod-result-name">{products.rods[3].name}</span>
+                <span className="rod-result-price">${products.rods[3].price}</span>
+                <div className="result-button-container">
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <button className="options-button">Select Options</button>
+                </div>
+              </div>
             </div>
           </div>
           <div className="shop-all-button-container">
@@ -167,9 +195,15 @@ export default function Homepage() {
         <div className="homepage-sale-banner-container">
           <div className="sale-banner">
             <div className="sale-container-1">
-            <img src={saleImage0} alt="" />
+              <div className="sales-text-container">
+                <span className="sale-title">Flash Sale</span>
+                <span className="sale-text">SAVE UP TO 30%</span>
+                <button className="sale-button">More Information</button>
+              </div>
+              <img src={saleImage0} alt="" />
             </div>
             <div className="sale-container-2">
+              <div className="image-tint"></div>
               <img src={saleImage1} alt="" />
             </div>
           </div>
@@ -179,24 +213,24 @@ export default function Homepage() {
           <div className="tips-and-tricks">
             <div className="tips-and-tricks-containers">
               <div className="tips-and-tricks-image-container">
-                <img src={tipImage00} alt="" className="tips-and-tricks-image" />
+                <img src={tipImage03} alt="" className="tips-and-tricks-image" />
               </div>
-              <h4 className="tips-and-tricks-text">Favorite Topwater Bass Fishing Lures the Pros Like</h4>
-              <p className="tips-and-tricks-description">Primetime for topwater fishing is upon much of the bass fishing world. Who doesn't love watching the brutality of nature at its finest as a bass tears a new one into your favorite topwater plug?</p>
+              <h4 className="tips-and-tricks-text">Know Your Quarry</h4>
+              <p className="tips-and-tricks-description">Before casting a line, research the habits and preferences of the fish species you're targeting. Understanding what they eat, when they're most active, and their preferred habitats can significantly increase your chances of a successful catch.</p>
             </div>
             <div className="tips-and-tricks-containers">
               <div className="tips-and-tricks-image-container">
-                <img src={tipImage00} alt="" className="tips-and-tricks-image" />
+                <img src={tipImage01} alt="" className="tips-and-tricks-image" />
               </div>
-              <h4 className="tips-and-tricks-text">Favorite Topwater Bass Fishing Lures the Pros Like</h4>
-              <p className="tips-and-tricks-description">Primetime for topwater fishing is upon much of the bass fishing world. Who doesn't love watching the brutality of nature at its finest as a bass tears a new one into your favorite topwater plug?</p>
+              <h4 className="tips-and-tricks-text">Match the Hatch</h4>
+              <p className="tips-and-tricks-description">Use lures or bait that mimic the natural prey of the fish in your chosen fishing spot. Observing the insects, baitfish, or other food sources in the area can guide you in selecting the most effective bait or lure for the conditions.</p>
             </div>
             <div className="tips-and-tricks-containers">
               <div className="tips-and-tricks-image-container">
-                <img src={tipImage00} alt="" className="tips-and-tricks-image" />
+                <img src={tipImage02} alt="" className="tips-and-tricks-image" />
               </div>
-              <h4 className="tips-and-tricks-text">Favorite Topwater Bass Fishing Lures the Pros Like</h4>
-              <p className="tips-and-tricks-description">Primetime for topwater fishing is upon much of the bass fishing world. Who doesn't love watching the brutality of nature at its finest as a bass tears a new one into your favorite topwater plug?</p>
+              <h4 className="tips-and-tricks-text"> Patience and Persistence</h4>
+              <p className="tips-and-tricks-description">Fishing often requires waiting quietly for long periods. Stay patient and keep trying different spots, techniques, and baits throughout the day. Fish behavior can change rapidly with weather, water temperature, and time of day, so adaptability is key.</p>
             </div>
           </div>
         </div>

@@ -79,6 +79,89 @@ export const products = {
             "id": 178515,
             "image": require("./images/Casting Rods/casting_09.png"),
             "type": "casting"
-        }
+        },
+
+
+
+        {
+            "name": "Lew's Custom XP Baitcast Combo",
+            "price": 129.98,
+            "description": "With its range of quality features and smooth performance, Lew's® Custom XP Baitcast Combo gives you a well-matched rod and reel setup that can easily handle the challenges you'll face, in fresh- or saltwater.",
+            "id": 101056714,
+            "image": require("./images/Combos/combo_00.png"),
+            "type": "combo"
+        },
+        {
+            "name": "Lew's Custom XP Speed Spin Spinning Combo",
+            "price": 129.98,
+            "description": "With its range of quality features and smooth performance, Lew's® Custom XP Baitcast Combo gives you a well-matched rod and reel setup that can easily handle the challenges you'll face, in fresh- or saltwater.",
+            "id": 101057618,
+            "image": require("./images/Combos/combo_01.png"),
+            "type": "combo"
+        },
+        {
+            "name": "Abu Garcia Revo SX/Vendetta Casting Rod and Reel Combo",
+            "price": 149.97,
+            "description": "Be first to fish the limited-edition Abu Garcia® Revo® SX/Vendetta Casting Rod and Reel Combo. This special pairing of Abu's Revo SX low-profile baitcaster and Vendetta rod is packed with iconic features, plus an added performance enhancement: custom Winn® rod and reel grips for ultimate security, comfort, and control in all weather conditions!",
+            "id": 100206382,
+            "image": require("./images/Combos/combo_02.png"),
+            "type": "combo"
+        },
+        {
+            "name": "PENN Squall 60 Lever Drag Conventional Rod and Reel Combo",
+            "price": 179.97,
+            "description": "Packed with superb features, the Squall Lever Drag is at the cutting edge of PENN's® industry-leading technology! The Versa-Handle system lets you adjust power and speed in under a minute, and the frame-flush ratcheting lever drag is rock-solid and ergonomic. Line capacity rings let you monitor topshot and capacity at a glance, and the DuraDrag® washers eliminate hesitation. Forged and machined-aluminum spool; 5 shielded stainless bearings plus roller bearing. Switchblade harness lugs (50 & 60 sizes only) lie flush with the frame when not in use.",
+            "id": 1309031300,
+            "image": require("./images/Combos/combo_03.png"),
+            "type": "combo"
+        },
+        {
+            "name": "Bass Pro Shops Johnny Morris CarbonLite Baitcast Combo",
+            "price": 219.98,
+            "description": "Compete at the highest levels with our Bass Pro Shops® Johnny Morris® CarbonLite™ Baitcast Combo. Unbelievable balance and precision, plus the strength and speed to handle any presentation.",
+            "id": 101466932,
+            "image": require("./images/Combos/combo_04.png"),
+            "type": "combo"
+        },
+        {
+            "name": "Offshore Angler Purple Tightline Spinning Rod and Reel Combo",
+            "price": 79.99,
+            "description": "All the toughness a angler demands in a saltwater fishing setup, without the high price! Our Offshore Angler™ Purple Tightline Spinning Combo takes on multiple species with smooth, run-stopping power and long-term durability - and always looks great in your hands.",
+            "id":  101040414,
+            "image": require("./images/Combos/combo_05.png"),
+            "type": "combo"
+        },
+        {
+            "name": "Bass Pro Shops Formula Baitcast Combo",
+            "price": 119.99,
+            "description": "Your \"formula\" for success: smooth, pro-style baitcast gear that doesn't cost an arm and a leg. Our Bass Pro Shops® Formula Baitcast Combo offers the performance you demand, at a surprisingly affordable price!",
+            "id":  100895442,
+            "image": require("./images/Combos/combo_06.png"),
+            "type": "combo"
+        },
+        {
+            "name": "Quantum Bill Dance Special Edition Spinning Rod and Reel Combo",
+            "price": 39.98,
+            "description": "The Quantum® Bill Dance Special Edition Spinning Rod and Reel Combo gives you a well-matched rod-and-reel setup for all-around fishing. Solidly built, this affordable combo will cover a wide range of situations, season after season.",
+            "id":  100046757,
+            "image": require("./images/Combos/combo_07.png"),
+            "type": "combo"
+        },
+        {
+            "name": "ProFISHiency Krazy 3 Baitcast Combo",
+            "price": 149.99,
+            "description": "Bring out your inner pro angler with the ProFISHiency® Krazy 3 Baitcast Combo! With its wicked-sharp colors and solid features, this stylish rod and reel set will put you at the heart of contention.",
+            "id":  101419578,
+            "image": require("./images/Combos/combo_08.png"),
+            "type": "combo"
+        },
+        {
+            "name": "ProFISHiency Krazy 3 Spinning Combo",
+            "price": 139.99,
+            "description": "Bring out your inner pro angler with the ProFISHiency® Krazy 3 Baitcast Combo! With its wicked-sharp colors and solid features, this stylish rod and reel set will put you at the heart of contention.",
+            "id":  101419577,
+            "image": require("./images/Combos/combo_09.png"),
+            "type": "combo"
+        },
     ]
 }
