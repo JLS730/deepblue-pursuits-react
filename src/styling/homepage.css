@@ -221,7 +221,9 @@
   position: absolute;
 }
 .homepage-sale-banner-container .sale-banner .sale-container-2 img {
-  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 120%;
   transform: scaleX(-1);
 }
 
@@ -425,8 +427,6 @@
   .homepage-banner-image-container .banner-catergories {
     display: none;
   }
-}
-@media (max-width: 715px) {
   .homepage-sale-banner-container {
     width: 100%;
     height: auto;
@@ -450,7 +450,6 @@
     right: 0;
     -o-object-fit: cover;
        object-fit: cover;
-    width: auto;
     height: 100%;
   }
 }
