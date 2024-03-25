@@ -150,8 +150,8 @@ export default function PayPal() {
 
   return (
     <div>
-        <div className='paypal-container' ref={paypal} style={{width: '400px'}}></div>
-        <button onClick={() => console.log(totalPrice)}>Test</button>
+        <div className='paypal-container' ref={paypal} style={{width: '330px'}}></div>
+        {/* <button onClick={() => console.log(totalPrice)}>Test</button> */}
     </div>
   )
 }

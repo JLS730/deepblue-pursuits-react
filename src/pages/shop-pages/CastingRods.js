@@ -88,7 +88,7 @@ export default function CastingRods() {
                 )
             })}
         </div>
-        <button onClick={() => console.log(pageProducts)}>Test</button>
+        {/* <button onClick={() => console.log(pageProducts)}>Test</button> */}
     </div>
   )
 }

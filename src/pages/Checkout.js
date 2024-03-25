@@ -126,10 +126,10 @@ function Checkout() {
             <span>{totalPrice === undefined ? null : totalPrice}</span>
           </div>
         </div>
-        <div className="paypal-container">
+        <div className="paypal">
           {checkout ? <PayPal /> : <button onClick={() => setCheckout(true)}>Checkout</button>}
           {/* <button onClick={() => handleCartItems()}>Test</button> */}
-          <button onClick={() => console.log(cartCount)}>Test 2</button>
+          {/* <button onClick={() => console.log(cartCount)}>Test 2</button> */}
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@
   max-width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .checkout-container .cart-items-container {
@@ -36,8 +36,28 @@
 .checkout-container .cart-items-container .total-price-container {
   padding: 2em 0;
 }
+.checkout-container .paypal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+.checkout-container .paypal button {
+  font-size: 1.2em;
+  padding: 0.2em 5em;
+  border-radius: 3px;
+  border: 1px solid rgb(133, 133, 133);
+  background-color: #FCBB32;
+  transition: 0.1s all linear;
+  cursor: pointer;
+}
+.checkout-container .paypal button:hover {
+  color: white;
+}
 .checkout-container .paypal-container {
-  background-color: #02c8f0;
+  background-color: #00b4d8;
+  border: 1px solid black;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -120,6 +120,7 @@ export default function Homepage() {
 
         </div>
         <div className="banner-image-container">
+          <div className="banner-image-tint"></div>
           <img src={homepageBannerImage} alt="" className="homepage-banner-image" />
         </div>
         <div className="banner-suggestion-container">

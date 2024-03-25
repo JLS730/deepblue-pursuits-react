@@ -19,6 +19,7 @@
   height: 100%;
   border: black 1px solid;
   table-layout: fixed;
+  font-family: sans-serif;
 }
 .homepage-banner-image-container .banner-catergories table tr:first-child {
   border: none;
@@ -40,6 +41,13 @@
   width: 570px;
   height: 466px;
   overflow: hidden;
+  position: relative;
+}
+.homepage-banner-image-container .banner-image-container .banner-image-tint {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 .homepage-banner-image-container .banner-image-container .homepage-banner-image {
   margin: 0 auto;
@@ -85,8 +93,17 @@
   font-weight: 400;
 }
 .homepage-banner-image-container .banner-suggestion-container .suggestion-container-1 .shop-suggestion-container button {
-  border: 1px solid black;
+  border: 1px solid #010937;
   padding: 0.1em 0.2em;
+  color: white;
+  background-color: #010937;
+  font-style: italic;
+  transition: 0.1s all linear;
+  cursor: pointer;
+}
+.homepage-banner-image-container .banner-suggestion-container .suggestion-container-1 .shop-suggestion-container button:hover {
+  background-color: white;
+  color: #010937;
 }
 .homepage-banner-image-container .banner-suggestion-container .suggestion-container-2 {
   position: relative;
@@ -115,8 +132,17 @@
   font-weight: 400;
 }
 .homepage-banner-image-container .banner-suggestion-container .suggestion-container-2 .shop-suggestion-container button {
-  border: 1px solid black;
+  border: 1px solid #010937;
   padding: 0.1em 0.2em;
+  color: white;
+  background-color: #010937;
+  font-style: italic;
+  transition: 0.1sall linear;
+  cursor: pointer;
+}
+.homepage-banner-image-container .banner-suggestion-container .suggestion-container-2 .shop-suggestion-container button:hover {
+  background-color: white;
+  color: #010937;
 }
 
 .homepage-sale-banner-container {
@@ -159,9 +185,16 @@
 }
 .homepage-sale-banner-container .sale-banner .sale-container-1 .sales-text-container .sale-button {
   padding: 0.3em 1.5em;
+  border: 1px solid #010937;
   background-color: #00b4d8;
-  border: none;
   color: white;
+  cursor: pointer;
+  transition: 0.1s all linear;
+}
+.homepage-sale-banner-container .sale-banner .sale-container-1 .sales-text-container .sale-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #00b4d8;
 }
 .homepage-sale-banner-container .sale-banner .sale-container-1 img {
   height: 220px;
@@ -279,9 +312,16 @@
 .homepage-container .hot-items-container .shop-all-button-container .shop-all-button {
   font-size: 1.2em;
   padding: 0.2em 1em;
-  border: 2px solid #010937;
+  border: 1px solid #010937;
   background-color: #00b4d8;
   color: white;
+  cursor: pointer;
+  transition: 0.1s all linear;
+}
+.homepage-container .hot-items-container .shop-all-button-container .shop-all-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #00b4d8;
 }
 .homepage-container .tips-and-tricks-container {
   display: flex;
@@ -319,6 +359,7 @@
 }
 .homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers .tips-and-tricks-image-container .tips-and-tricks-image {
   width: 100%;
+  height: 100%;
 }
 .homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers .tips-and-tricks-text {
   padding: 1em 0;
@@ -327,4 +368,109 @@
 .homepage-container .tips-and-tricks-container .tips-and-tricks .tips-and-tricks-containers .tips-and-tricks-description {
   text-align: justify;
   padding: 0.4em;
+  height: 138.8px;
+}
+
+@media (max-width: 1160px) {
+  .homepage-banner-image-container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .homepage-banner-image-container .banner-catergories {
+    height: auto;
+    width: auto;
+  }
+  .homepage-banner-image-container .banner-catergories table {
+    flex-direction: row;
+  }
+  .homepage-banner-image-container .banner-catergories table tr {
+    border-top: none;
+  }
+  .homepage-banner-image-container .banner-catergories table tr td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    text-align: center;
+  }
+  .homepage-banner-image-container .banner-image-container {
+    width: 865px;
+    max-width: 100%;
+    margin: 2em 0;
+  }
+  .homepage-banner-image-container .banner-suggestion-container {
+    height: 220px;
+    width: 865px;
+    max-width: 100%;
+    flex-direction: row;
+    padding: 0 0.5em;
+  }
+  .homepage-banner-image-container .banner-suggestion-container div {
+    height: 100%;
+    width: 45%;
+    border: 1px solid black;
+  }
+}
+@media (max-width: 1020px) {
+  .homepage-sale-banner-container .sale-banner .sale-container-2 img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (max-width: 860px) {
+  .homepage-banner-image-container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .homepage-banner-image-container .banner-catergories {
+    display: none;
+  }
+}
+@media (max-width: 715px) {
+  .homepage-sale-banner-container {
+    width: 100%;
+    height: auto;
+    padding: 1em 0;
+  }
+  .homepage-sale-banner-container .sale-banner {
+    height: auto;
+    flex-direction: column;
+  }
+  .homepage-sale-banner-container .sale-banner .sale-container-1 {
+    height: 400px;
+    width: 90%;
+  }
+  .homepage-sale-banner-container .sale-banner .sale-container-2 {
+    height: 400px;
+    width: 90%;
+    margin-top: 2em;
+  }
+  .homepage-sale-banner-container .sale-banner .sale-container-2 img {
+    position: absolute;
+    right: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: auto;
+    height: 100%;
+  }
+}
+@media (max-width: 540px) {
+  .homepage-banner-image-container .banner-image-container {
+    margin-top: 0;
+  }
+  .homepage-banner-image-container .banner-image-container .homepage-banner-image {
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+  }
+}
+@media (max-width: 370px) {
+  .tips-and-tricks-title {
+    text-align: center !important;
+  }
+  .tips-and-tricks-description {
+    text-align: justify !important;
+    -moz-text-align-last: center !important;
+         text-align-last: center !important;
+  }
 }/*# sourceMappingURL=homepage.css.map */
