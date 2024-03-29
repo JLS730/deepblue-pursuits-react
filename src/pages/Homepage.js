@@ -94,6 +94,7 @@ export default function Homepage() {
     <button onClick={() => handleSignOut()}>Sign Out</button> */}
       <div className="homepage-banner-image-container">
         <div className="banner-catergories">
+
           <table>
             <tr>
               <th><i className="fa-solid fa-bars"></i> Popular Suggestions</th>
@@ -120,8 +121,12 @@ export default function Homepage() {
 
         </div>
         <div className="banner-image-container">
-          <div className="banner-image-tint"></div>
+          <h2 className="banner-sale-title">Flash Sale</h2>
+          <h3 className="banner-sale-subtext">Great Savings on Fishing!</h3>
+          <h3 className="banner-sale-subtext-2">Be The First To Have One</h3>
+          <button className="banner-shop-now-button">Shop Now</button>
           <img src={homepageBannerImage} alt="" className="homepage-banner-image" />
+          <div className="banner-image-tint"></div>
         </div>
         <div className="banner-suggestion-container">
           <div className="suggestion-container-1">
@@ -204,8 +209,11 @@ export default function Homepage() {
               <img src={saleImage0} alt="" />
             </div>
             <div className="sale-container-2">
-              <div className="image-tint"></div>
+              <h3 className="banner-sale-subtext">Top Rated Fishing Reels</h3>
+              <h3 className="banner-sale-subtext-2">And Rod Combos!</h3>
+              <button className="banner-shop-now-button">Shop Now</button>
               <img src={saleImage1} alt="" />
+              <div className="image-tint"></div>
             </div>
           </div>
         </div>

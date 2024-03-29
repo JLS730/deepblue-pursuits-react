@@ -10,6 +10,7 @@ import { doc, getFirestore, getDoc, getDocs, collection, setDoc } from "firebase
 
 import { products } from '../../products'
 import { productsImages } from '../../productImages'
+import companyPlaceholder from '../../images/Site Images/rod_company_placeholder.png'
 
 import '../../styling/current-product.css'
 
@@ -39,9 +40,19 @@ export default function CurrentProduct() {
 
   const navigate = useNavigate()
 
+  const date = new Date();
+
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
   useEffect(() => {
     if (cartCount.length !== 0) {
       handleItemCheck()
+
+      // console.log(month)
       return
     }
 
@@ -137,34 +148,61 @@ export default function CurrentProduct() {
 
   return (
     <>
-    <NavigationBar count={cartNumber} />
+      <NavigationBar count={cartNumber} />
       <div className="current-product-container">
         <div className="current-product">
+          <h2 className="product-information-name">{currentProduct.name}</h2>
           <div className="product-image-container">
             <img src={currentProductImage} alt="" />
           </div>
-          <div className="product-information-container">
-            <h2 className="product-information-name">{currentProduct.name}</h2>
-            <h2 className="product-information-price">$ {currentProduct.price}</h2>
-            <div className="product-add-to-cart-button-container">
-              {itemAddedToggle === false ? <button className="product-add-to-cart-button" onClick={() => {
-                handleUserCartCount()
 
-                setTimeout(() => {
-                  setCartNumber(cartNumber + 1)
-                }, 200);
-              }}>Add To Cart</button> : null}
-              {itemAddedToggle === true ? <button className="product-add-to-cart-button" disabled>Added</button> : null}
-            </div>
+          <div className="current-product-description-container">
+            <h2 className="product-description-title">Product Details</h2>
+            <img src={companyPlaceholder} alt="" className="product-logo" />
+            <p className="product-description">{currentProduct.description}</p>
           </div>
         </div>
-        <div className="current-product-description-container">
-          <h2 className="product-description-title">Product Description</h2>
-          <p className="product-description">{currentProduct.description}</p>
+        <div className="product-information-container">
+          <h2 className="product-information-name">{currentProduct.name}</h2>
+          <h2 className="product-information-price">$ {currentProduct.price}</h2>
+          <p className="product-information-savings">SAVE TODAY! Pay ${currentProduct.price - 20} with $20 in CLUB Points upon approval to use on today's order.Apply Today</p>
+          <p className="product-information-order"> Order by 4pm E.T. for {months[month - 1]} {day} delivery </p>
+          <div className="product-information-options-container">
+            <label htmlFor="retrieve" className="retrieve-option">Retrieve</label>
+            <select name="retrieve" id="retrieve-selection" className="retrieve-selection">
+              <option value="">Please Choose...</option>
+              <option value="left">Left</option>
+              <option value="right">Right</option>
+            </select>
+
+            <label htmlFor="length" className="length-option">Length</label>
+            <select name="length" id="length-selection" className="length-selection">
+              <option value="">Please Choose...</option>
+              <option value="7">7'</option>
+              <option value="7.4">7'4"</option>
+            </select>
+
+            <label htmlFor="power" className="power-option">Power</label>
+            <select name="power" id="power-selection" className="power-selection">
+              <option value="">Please Choose...</option>
+              <option value="medium">Medium</option>
+              <option value="medium heavy">Medium Heavy</option>
+            </select>
+          </div>
+          <div className="product-add-to-cart-button-container">
+            {itemAddedToggle === false ? <button className="product-add-to-cart-button" onClick={() => {
+              handleUserCartCount()
+
+              setTimeout(() => {
+                setCartNumber(cartNumber + 1)
+              }, 200);
+            }}>Add To Cart</button> : null}
+            {itemAddedToggle === true ? <button className="product-add-to-cart-button" disabled>Added</button> : null}
+          </div>
         </div>
-        <button onClick={() => console.log(cartNumber)}>Test</button>
+        {/* <button onClick={() => console.log(cartNumber)}>Test</button> */}
         {/* <button onClick={() => handleGetFavoritesInformation()}>Test</button> */}
-      </div>
+      </div >
     </>
   )
 }

@@ -42,6 +42,10 @@
   height: 466px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .homepage-banner-image-container .banner-image-container .banner-image-tint {
   background-color: rgba(0, 0, 0, 0.5);
@@ -50,8 +54,54 @@
   position: absolute;
 }
 .homepage-banner-image-container .banner-image-container .homepage-banner-image {
+  position: absolute;
   margin: 0 auto;
   width: 130%;
+}
+.homepage-banner-image-container .banner-image-container h2,
+.homepage-banner-image-container .banner-image-container h3,
+.homepage-banner-image-container .banner-image-container button {
+  z-index: 2;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+.homepage-banner-image-container .banner-image-container h2 {
+  left: 100px;
+  top: 80px;
+  background-color: #8d9f0d;
+  padding: 0.2em;
+  margin-bottom: 0.7em;
+  margin-right: 6em;
+}
+.homepage-banner-image-container .banner-image-container .banner-sale-subtext {
+  font-size: 2em;
+  width: 350px;
+  background-color: #00b4d8;
+  font-size: 1.7em;
+  padding: 0.1em;
+  margin-right: 2em;
+}
+.homepage-banner-image-container .banner-image-container .banner-sale-subtext-2 {
+  width: 350px;
+  font-size: 1.7em;
+  margin-left: 2em;
+  padding: 0.1em;
+  background-color: #00b4d8;
+}
+.homepage-banner-image-container .banner-image-container button {
+  font-weight: 600;
+  padding: 0.2em 3em;
+  font-size: 1em;
+  margin-left: 6em;
+  margin-top: 0.7em;
+  border: none;
+  background-color: #8d9f0d;
+  cursor: pointer;
+  transition: 0.1s all linear;
+}
+.homepage-banner-image-container .banner-image-container button:hover {
+  background-color: #00b4d8;
 }
 .homepage-banner-image-container .banner-suggestion-container {
   width: 20%;
@@ -212,15 +262,51 @@
   background-color: aliceblue;
   overflow: hidden;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.homepage-sale-banner-container .sale-banner .sale-container-2 h3,
+.homepage-sale-banner-container .sale-banner .sale-container-2 button {
+  z-index: 2;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+.homepage-sale-banner-container .sale-banner .sale-container-2 .banner-sale-subtext {
+  font-size: 2em;
+  background-color: #00b4d8;
+  font-size: 1.7em;
+  padding: 0.1em 0.5em;
+}
+.homepage-sale-banner-container .sale-banner .sale-container-2 .banner-sale-subtext-2 {
+  font-size: 1.7em;
+  margin-left: 2em;
+  padding: 0.1em 0.5em;
+  background-color: #00b4d8;
+}
+.homepage-sale-banner-container .sale-banner .sale-container-2 button {
+  font-weight: 600;
+  padding: 0.2em 3em;
+  font-size: 1em;
+  margin-top: 1.5em;
+  border: none;
+  background-color: #8d9f0d;
+  cursor: pointer;
+  transition: 0.1s all linear;
+}
+.homepage-sale-banner-container .sale-banner .sale-container-2 button:hover {
+  background-color: #00b4d8;
 }
 .homepage-sale-banner-container .sale-banner .sale-container-2 .image-tint {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
   position: absolute;
 }
 .homepage-sale-banner-container .sale-banner .sale-container-2 img {
+  position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
   width: 120%;
@@ -457,10 +543,44 @@
   .homepage-banner-image-container .banner-image-container {
     margin-top: 0;
   }
+  .homepage-banner-image-container .banner-image-container .banner-sale-subtext {
+    width: 310px;
+    font-size: 1.5em;
+    margin-left: 1em;
+    padding: 0.1em;
+  }
+  .homepage-banner-image-container .banner-image-container .banner-sale-subtext-2 {
+    width: 310px;
+    font-size: 1.5em;
+    margin-left: 1em;
+    padding: 0.1em;
+  }
   .homepage-banner-image-container .banner-image-container .homepage-banner-image {
     margin: 0 auto;
     width: auto;
     height: 100%;
+  }
+  .sale-container-2 .banner-sale-subtext {
+    width: 320px;
+    font-size: 1.5em !important;
+    margin: 0 auto;
+    padding: 0.1em;
+  }
+  .sale-container-2 .banner-sale-subtext-2 {
+    width: auto;
+    font-size: 1.4em !important;
+    padding: 0.1em;
+  }
+  .sale-container-2 button {
+    font-weight: 600;
+    padding: 0.2em 3em;
+    font-size: 1em;
+    margin-left: 0 !important;
+    margin-top: 1em !important;
+    border: none;
+    background-color: #8d9f0d;
+    cursor: pointer;
+    transition: 0.1s all linear;
   }
 }
 @media (max-width: 370px) {
