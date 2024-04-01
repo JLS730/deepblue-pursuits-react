@@ -546,6 +546,9 @@
   .homepage-banner-image-container .banner-image-container {
     margin-top: 0;
   }
+  .homepage-banner-image-container .banner-image-container .banner-sale-title {
+    margin-left: 2.5em;
+  }
   .homepage-banner-image-container .banner-image-container .banner-sale-subtext {
     width: 310px;
     font-size: 1.5em;
