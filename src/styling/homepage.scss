@@ -21,7 +21,7 @@
             flex-direction: column;
             height: 100%;
             // padding: .7em;
-            border: black 1px solid;
+            // border: black 1px solid;
             table-layout: fixed;
             font-family: sans-serif;
 
@@ -95,6 +95,7 @@
             padding: .2em;
             margin-bottom: .7em;
             margin-right: 6em;
+            transform: translateX(-50%) skew(-10deg);
         }
 
         .banner-sale-subtext {
@@ -104,6 +105,7 @@
             font-size: 1.7em;
             padding: .1em;
             margin-right: 2em;
+            transform: skew(-10deg);
         }
 
         .banner-sale-subtext-2 {
@@ -113,6 +115,7 @@
             margin-left: 2em;
             padding: .1em;
             background-color: #00b4d8;
+            transform: skew(-10deg);
         }
 
         button {
@@ -147,7 +150,7 @@
             background-color: #00b4d8;
             height: 46%;
             width: 100%;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
 
         img {
@@ -329,6 +332,7 @@
                 color: white;
                 font-family: sans-serif;
                 text-align: center;
+                
             }
 
             .banner-sale-subtext {
@@ -338,6 +342,7 @@
                 font-size: 1.7em;
                 padding: .1em .5em;
                 // margin-right: 2em;
+                transform: skew(-10deg);
             }
 
             .banner-sale-subtext-2 {
@@ -347,6 +352,7 @@
                 margin-left: 2em;
                 padding: .1em .5em;
                 background-color: #00b4d8;
+                transform: skew(-10deg);
             }
 
             button {

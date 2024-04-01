@@ -165,7 +165,7 @@ export default function CurrentProduct() {
         <div className="product-information-container">
           <h2 className="product-information-name">{currentProduct.name}</h2>
           <h2 className="product-information-price">$ {currentProduct.price}</h2>
-          <p className="product-information-savings">SAVE TODAY! Pay ${currentProduct.price - 20} with $20 in CLUB Points upon approval to use on today's order.Apply Today</p>
+          <p className="product-information-savings">SAVE TODAY! Pay ${currentProduct.price - 20} with $20 in CLUB Points upon approval to use on today's order. Apply Today!</p>
           <p className="product-information-order"> Order by 4pm E.T. for {months[month - 1]} {day} delivery </p>
           <div className="product-information-options-container">
             <label htmlFor="retrieve" className="retrieve-option">Retrieve</label>

@@ -17,7 +17,6 @@
   align-items: flex-start;
   flex-direction: column;
   height: 100%;
-  border: black 1px solid;
   table-layout: fixed;
   font-family: sans-serif;
 }
@@ -73,6 +72,7 @@
   padding: 0.2em;
   margin-bottom: 0.7em;
   margin-right: 6em;
+  transform: translateX(-50%) skew(-10deg);
 }
 .homepage-banner-image-container .banner-image-container .banner-sale-subtext {
   font-size: 2em;
@@ -81,6 +81,7 @@
   font-size: 1.7em;
   padding: 0.1em;
   margin-right: 2em;
+  transform: skew(-10deg);
 }
 .homepage-banner-image-container .banner-image-container .banner-sale-subtext-2 {
   width: 350px;
@@ -88,6 +89,7 @@
   margin-left: 2em;
   padding: 0.1em;
   background-color: #00b4d8;
+  transform: skew(-10deg);
 }
 .homepage-banner-image-container .banner-image-container button {
   font-weight: 600;
@@ -116,7 +118,6 @@
   background-color: #00b4d8;
   height: 46%;
   width: 100%;
-  border: 1px solid black;
 }
 .homepage-banner-image-container .banner-suggestion-container img {
   height: 140px;
@@ -279,12 +280,14 @@
   background-color: #00b4d8;
   font-size: 1.7em;
   padding: 0.1em 0.5em;
+  transform: skew(-10deg);
 }
 .homepage-sale-banner-container .sale-banner .sale-container-2 .banner-sale-subtext-2 {
   font-size: 1.7em;
   margin-left: 2em;
   padding: 0.1em 0.5em;
   background-color: #00b4d8;
+  transform: skew(-10deg);
 }
 .homepage-sale-banner-container .sale-banner .sale-container-2 button {
   font-weight: 600;
