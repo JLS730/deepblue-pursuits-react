@@ -14,11 +14,12 @@
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 1em;
+  padding-top: 3em;
 }
 .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers {
   border: 1px solid #00b4d8;
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 220px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -29,9 +30,13 @@
   background-color: black;
   width: 100%;
   text-align: center;
-  bottom: 0;
-  padding: 2em 0;
+  padding: 1em 0;
   font-family: sans-serif;
+  bottom: -56.4px;
+  transition: 0.1s all linear;
+}
+.shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .nav-title-container .nav-title {
+  font-size: 1em;
 }
 .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers img {
   height: 100%;
@@ -43,4 +48,52 @@
 .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .combo-nav-image {
   position: absolute;
   right: -60px;
+}
+.shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers:hover .nav-title-container {
+  bottom: 0;
+}
+
+@media (max-width: 930px) {
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers {
+    height: 150px;
+    width: 150px;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .nav-title-container {
+    padding: 0.5em;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .nav-title-container .nav-title {
+    font-size: 0.9em;
+  }
+}
+@media (max-width: 650px) {
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers {
+    height: 100px;
+    width: 110px;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .nav-title-container .nav-title {
+    font-size: 0.7em;
+  }
+}
+@media (max-width: 480px) {
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers {
+    height: 100px;
+    width: 150px;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .nav-title-container .nav-title {
+    font-size: 0.9em;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .spinning-nav-image {
+    right: -20px;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .combo-nav-image {
+    right: -20px;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .saltwater-nav-image {
+    position: absolute;
+    width: 100%;
+  }
+  .shop-container .shop-navigation-container .shop-navigation .shop-navigation-containers .casting-nav-image {
+    position: absolute;
+    width: 100%;
+  }
 }/*# sourceMappingURL=shop.css.map */

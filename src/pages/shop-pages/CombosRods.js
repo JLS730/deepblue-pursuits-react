@@ -59,7 +59,7 @@ export default function CombosRods() {
         <div className="rods-container">
             <h2 className="rods-title">Combo Rods</h2>
             <div className="rods-sort-conatiner">
-                <span className="sort-results-text">14 Results</span>
+                <span className="sort-results-text">10 Results</span>
                 <div className="sort-container">
                     <label className='sort-by-text' htmlFor="categories">Sort by:</label>
                     <select className='categories' name="categories" id="categories">
@@ -82,14 +82,14 @@ export default function CombosRods() {
                 <div className="rods-results"></div>
                 <div className="rods-results"></div> */}
                 {pageProducts.map((rod, x) => {
-                return (
-                    <div className="rods-results">
-                        <Link to={`product/combo_${rod.id}`}><img src={rod.image} alt="" key={rod.id} /></Link>
-                        <span className="rod-result-name">{rod.name}</span>
-                        <span className="rod-result-price">${rod.price}</span>
-                    </div>
-                )
-            })}
+                    return (
+                        <div className="rods-results">
+                            <Link to={`product/combo_${rod.id}`}><img src={rod.image} alt="" key={rod.id} /></Link>
+                            <span className="rod-result-name">{rod.name}</span>
+                            <span className="rod-result-price">${rod.price}</span>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

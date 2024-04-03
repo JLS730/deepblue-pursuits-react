@@ -13,7 +13,7 @@ import '../../styling/shop-styling/casting-rods.css'
 
 import { products } from '../../products'
 
-export default function SpinningRods() {
+export default function FlyRods() {
     const [currentUserInformation, setCurrentUserInformation] = useState({})
     const [pageProducts, setPageProducts] = useState([])
 
@@ -26,13 +26,13 @@ export default function SpinningRods() {
 
     useEffect(() => {
         handleLoginCheck()
-        handlePageProducts('spinning')
+        handlePageProducts('fly')
         console.log(products.rods)
     }, [])
 
     function handleLoginCheck() {
         onAuthStateChanged(auth, (user) => {
-            if(user) {
+            if (user) {
                 const uid = user.uid
 
                 setCurrentUserInformation(user)
@@ -45,15 +45,19 @@ export default function SpinningRods() {
 
     function handlePageProducts(rodType) {
         products.rods.forEach(rod => {
-            if(rod.type == rodType) {
+            if (rod.type == rodType) {
                 setPageProducts(oldArray => [...oldArray, rod])
             }
         })
     }
 
+    function test() {
+        // console.log(date)
+    }
+
     return (
         <div className="rods-container">
-            <h2 className="rods-title">Spinning Rods</h2>
+            <h2 className="rods-title">Saltwater Rods</h2>
             <div className="rods-sort-conatiner">
                 <span className="sort-results-text">10 Results</span>
                 <div className="sort-container">
@@ -80,7 +84,7 @@ export default function SpinningRods() {
                 {pageProducts.map((rod, x) => {
                     return (
                         <div className="rods-results">
-                            <Link to={`product/spinning_${rod.id}`}><img src={rod.image} alt="" key={rod.id} /></Link>
+                            <Link to={`product/fly_${rod.id}`}><img src={rod.image} alt="" key={rod.id} /></Link>
                             <span className="rod-result-name">{rod.name}</span>
                             <span className="rod-result-price">${rod.price}</span>
                         </div>

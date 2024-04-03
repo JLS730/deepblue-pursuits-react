@@ -19,11 +19,12 @@
             // align-items: center;
             flex-wrap: wrap;
             gap: 1em;
+            padding-top: 3em;
 
             .shop-navigation-containers {
                 border: 1px solid #00b4d8;
-                height: 250px;
-                width: 250px;
+                height: 200px;
+                width: 220px;
                 overflow: hidden;
                 position: relative;
                 cursor: pointer;
@@ -34,10 +35,20 @@
                     background-color: black;
                     width: 100%;
                     text-align: center;
-                    bottom: 0;
-                    padding: 2em 0;
+                    // bottom: 10px;
+                    padding: 1em 0;
                     font-family: sans-serif;
+                    bottom: -56.4px;
+                    transition: .1s all linear;
+
+                    .nav-title {
+                        font-size: 1em;
+                    }
                 }
+                
+                // .nav-title-container:hover {
+                //     bottom: 0;
+                // }
 
                 img {
                     height: 100%;
@@ -55,6 +66,107 @@
                     right: -60px;
                 }
 
+            }
+
+            .shop-navigation-containers:hover {
+
+                .nav-title-container {
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 930px) {
+
+    .shop-container {
+
+        .shop-navigation-container {
+
+            .shop-navigation {
+        
+        
+                .shop-navigation-containers {
+                    height: 150px;
+                    width: 150px;
+
+                    .nav-title-container {
+                        padding: .5em;
+
+                        .nav-title {
+                            font-size: .9em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+
+    .shop-container {
+
+        .shop-navigation-container {
+
+            .shop-navigation {
+        
+        
+                .shop-navigation-containers {
+                    height: 100px;
+                    width: 110px;
+
+                    .nav-title-container {
+                        
+                        .nav-title {
+                            font-size: .7em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+
+    .shop-container {
+
+        .shop-navigation-container {
+
+            .shop-navigation {
+        
+        
+                .shop-navigation-containers {
+                    height: 100px;
+                    width: 150px;
+
+                    .nav-title-container {
+                        
+                        .nav-title {
+                            font-size: .9em;
+                        }
+                    }
+
+                    .spinning-nav-image {
+                        right: -20px;
+                    }
+                    
+                    .combo-nav-image {
+                        right: -20px;
+                    }
+                    
+                    .saltwater-nav-image {
+                        position: absolute;
+                        width: 100%;
+                    }
+                    
+                    .casting-nav-image {
+                        position: absolute;
+                        width: 100%;
+                    }
+                }
             }
         }
     }

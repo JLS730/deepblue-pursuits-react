@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
@@ -23,6 +23,8 @@ export default function NavigationBar(props) {
 
     const app = initializeApp(firebaseConfig);
     const firestoreDB = getFirestore(app)
+
+    const hamburgerMenuRef = useRef(null)
 
     useEffect(() => {
         if (currentUserInformation.isAnonymous === true) {
@@ -84,22 +86,49 @@ export default function NavigationBar(props) {
         console.log(price.toFixed(2))
     }
 
+    function handleHamburgerMenuLinks(element) {
+        if(element.classList.contains('slide-in')) {
+            element.classList.remove('slide-in')
+        }
+    
+        element.classList.add('slide-out')
+    }
+    
+    function handleHamburgerMenuOpenBtn(element) {
+        if(element.classList.contains('slide-out')) {
+            element.classList.remove('slide-out')
+        }
+    
+        element.classList.add('slide-in')
+    }
+    
+    function handleHamburgerMenuCloseBtn(element) {
+        if(!element.classList.contains('slide-out')) {
+            element.classList.add('slide-out')
+        }
+    
+        setTimeout(() => {
+            element.classList.remove('slide-in')
+        }, 410)
+    }
+
     return (
         <>
-            <aside class="hamburger-menu-links-container">
-                <div class="hamburger-menu-exit-container">
+            <aside class="hamburger-menu-links-container" ref={hamburgerMenuRef}>
+                <div class="hamburger-menu-exit-container" onClick={() => handleHamburgerMenuCloseBtn(hamburgerMenuRef.current)}>
                     <div class="hamburger-menu-exit-button-container">
                         <div class="hamburger-menu-exit-button"></div>
                     </div>
                 </div>
                 <div class="hamburger-links-container">
                     <ul class="hamburger-navigation-links">
-                        <li><a href="#introduction-section"
-                            class=" hamburger-introduction-link hamburger-links">Introduction</a></li>
-                        <li><a href="#skills-section" class=" hamburger-skills-link hamburger-links">Skills</a></li>
-                        <li><a href="#projects-section" class=" hamburger-portfolio-link hamburger-links">Projects</a></li>
-                        <li><a href="#about-me-section" class=" hamburger-about-link hamburger-links">About</a></li>
-                        <li><a href="#contact-section" class=" hamburger-contact-link hamburger-links">Contact</a></li>
+                        <li onClick={() => handleHamburgerMenuLinks(hamburgerMenuRef.current)}><a href="#home-section" class=" hamburger-home-link hamburger-links">Home</a></li>
+                        <li onClick={() => handleHamburgerMenuLinks(hamburgerMenuRef.current)}><a href="#features-section" class=" hamburger-features-link hamburger-links">Features</a></li>
+                        <li onClick={() => handleHamburgerMenuLinks(hamburgerMenuRef.current)}><a href="#products-section" class=" hamburger-products-link hamburger-links">Products</a></li>
+                        <li onClick={() => handleHamburgerMenuLinks(hamburgerMenuRef.current)}><a href="#classes-me-section" class=" hamburger-classes-link hamburger-links">Classes</a></li>
+                        <li onClick={() => handleHamburgerMenuLinks(hamburgerMenuRef.current)}><a href="#blog-section" class=" hamburger-blog-link hamburger-links">Blog</a></li>
+                        <li onClick={() => handleHamburgerMenuLinks(hamburgerMenuRef.current)}><a href="#gallery-section" class=" hamburger-gallery-link hamburger-links">Gallery</a></li>
+                        <li onClick={() => handleHamburgerMenuLinks(hamburgerMenuRef.current)}><a href="#contact-section" class=" hamburger-contact-link hamburger-links">Contact Us</a></li>
                     </ul>
                 </div>
             </aside>
@@ -144,7 +173,7 @@ export default function NavigationBar(props) {
                         <input className='catergorie-search-input' type="texxt" />
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <div class="navigation-hamburger-menu-container">
+                    <div class="navigation-hamburger-menu-container" onClick={() => handleHamburgerMenuOpenBtn(hamburgerMenuRef.current)}>
                         <div class="hamburger-menu"></div>
                     </div>
                 </div>

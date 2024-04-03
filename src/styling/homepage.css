@@ -499,7 +499,6 @@
   .homepage-banner-image-container .banner-suggestion-container div {
     height: 100%;
     width: 45%;
-    border: 1px solid black;
   }
 }
 @media (max-width: 1020px) {
