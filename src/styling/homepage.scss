@@ -37,6 +37,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                
+                
 
                 td {
                     // margin: auto ;
@@ -46,6 +48,10 @@
                     color: white;
                     margin-left: .8em;
                     // justify-self: flex-start;
+
+                    a {
+                        text-decoration: none;
+                    }
                 }
             }
         }
@@ -181,10 +187,11 @@
                 }
 
                 button {
-                    border: 1px solid #010937;
-                    padding: .1em .2em;
+                    border: none;
+                    padding: .2em .3em;
                     color: white;
                     background-color: #010937;
+                    transition: .1s all linear;
                     font-style: italic;
                     transition: .1s all linear;
                     cursor: pointer;
@@ -227,10 +234,11 @@
                 }
 
                 button {
-                    border: 1px solid #010937;
-                    padding: .1em .2em;
+                    border: none;
+                    padding: .2em .3em;
                     color: white;
                     background-color: #010937;
+                    transition: .1s all linear;
                     font-style: italic;
                     transition: .1s +all linear;
                     cursor: pointer;
@@ -288,7 +296,7 @@
 
                 .sale-button {
                     padding: .3em 1.5em;
-                    border: 1px solid #010937;
+                    border: none;
                     background-color: #00b4d8;
                     color: white;
                     cursor: pointer;
@@ -296,9 +304,7 @@
                 }
 
                 .sale-button:hover {
-                    background-color: white;
-                    color: black;
-                    border: 1px solid #00b4d8;
+                    background-color: #8d9f0d;
                 }
             }
 
@@ -482,6 +488,9 @@
                     justify-content: center;
                     align-items: center;
                     // padding: .3em .5em;
+                    cursor: pointer;
+                    transition: .1s all linear;
+
 
                     i {
                         color: white;
@@ -494,7 +503,21 @@
                         // margin-left: 1em;
                         background-color: #010937;
                         padding: .21em 1em;
-                        color: white;
+                        cursor: pointer;
+                        transition: .14s all linear;
+                        
+                        a {
+                            color: white;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .result-button-container:hover {
+                    background-color: #010937;
+
+                    button {
+                        background-color: #00b4d8;
                     }
                 }
             }
@@ -505,9 +528,9 @@
             padding: 3em 0;
 
             .shop-all-button {
-                font-size: 1.2em;
+                font-size: 1.3em;
                 padding: .2em 1em;
-                border: 1px solid #010937;
+                border: none;
                 background-color: #00b4d8;
                 color: white;
                 cursor: pointer;
@@ -515,9 +538,7 @@
             }
 
             .shop-all-button:hover {
-                background-color: white;
-                color: black;
-                border: 1px solid #00b4d8;
+                background-color: #8d9f0d;
             }
         }
     }

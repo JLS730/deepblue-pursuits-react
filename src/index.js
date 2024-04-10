@@ -8,6 +8,7 @@ import NavigationBar from './components/NavigationBar';
 import Homepage from './pages/Homepage';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import SignOut from './pages/SignOut';
 import Account from './pages/Acoount';
 import Checkout from './pages/Checkout';
 import Shop from './pages/Shop';
@@ -20,9 +21,10 @@ root.render(
   <HashRouter>
     {/* <NavigationBar /> */}
     <Routes>
-      <Route path='/home' element={<Homepage />} />
-      <Route path='/' element={<SignIn />} />
+      <Route path='/' element={<Homepage />} />
+      <Route path='/sign-in' element={<SignIn />} />
       <Route path='/sign-up' element={<SignUp />} />
+      <Route path='/sign-out' element={<SignOut />} />
       <Route path='/account' element={<Account />} />
       <Route path='/shop' element={<Shop />} />
       <Route path='/shop/product' element={<CurrentProduct />} >

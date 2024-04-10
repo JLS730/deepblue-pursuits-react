@@ -48,9 +48,9 @@ const Account = () => {
 
   function handleSignOut() {
     signOut(auth).then(() => {
-      navigate('/')
+      navigate('/sign-out')
     }).catch((error) => {
-      // An error happened.
+
     });
   }
 
@@ -109,10 +109,11 @@ const Account = () => {
 
     querySnapshot.forEach((doc) => {
       setCartCount((oldArray) => [...oldArray, doc.data()])
-      // console.log(doc.id, " => ", doc.data());
     });
     console.log(cartCount)
   }
+
+  
 
   return (
     <>
@@ -175,14 +176,8 @@ const Account = () => {
             </div>
           </div>
           <button onClick={() => handleUserSubmittedInformation()}>Save Information</button>
-          {/* <button onClick={() => handleGetUserInformation()}>Check User</button>
-            <button onClick={() => {
-              mondayRef.current.checked = true
-            }}>Check Mark Test</button> */}
           <div>
             <button onClick={() => handleSignOut()}>Logout</button>
-            <button onClick={() => handleGetUserInformation()}>Check Login</button>
-            {/* <button onClick={() => handleLoginCheck()}>Check Login</button> */}
           </div>
         </div>
       </section>

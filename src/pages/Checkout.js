@@ -29,7 +29,7 @@ function Checkout() {
   useEffect(() => {
     if (cartCount.length !== 0) {
       handleTotalPrice()
-      console.log('working')
+      // console.log('working')
       return
     }
 
@@ -37,10 +37,10 @@ function Checkout() {
 
     if (currentUserInformation.uid !== undefined) {
       handleGetCartCount()
-      console.log('caught')
+      // console.log('caught')
     }
 
-    console.log(cartCount.length)
+    // console.log(cartCount.length)
   }, [currentUserInformation, cartCount.length])
 
   function handleLoginCheck() {
@@ -49,7 +49,7 @@ function Checkout() {
         const uid = user.uid
 
         setCurrentUserInformation(user)
-        console.log(uid)
+        // console.log(uid)
       } else {
         console.log('No User Found!')
       }
@@ -63,7 +63,7 @@ function Checkout() {
       setCartCount((oldArray) => [...oldArray, doc.data()])
       // console.log(doc.id, " => ", doc.data());
     });
-    console.log(cartCount)
+    // console.log(cartCount)
   }
 
   function handleTotalPrice() {
@@ -74,7 +74,7 @@ function Checkout() {
     }
 
     setTotalPrice(price.toFixed(2))
-    console.log(totalPrice)
+    // console.log(totalPrice)
   }
 
   async function handleRemoveCartItem(name) {
@@ -107,7 +107,7 @@ function Checkout() {
             <span className="cart-item-price">$99.99</span>
           </div> */}
             {cartCount.length === 0 ? null : cartCount.map((item, x) => {
-              console.log(item)
+              // console.log(item)
 
               return (
                 <div className="cart-items">

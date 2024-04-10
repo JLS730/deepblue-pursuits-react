@@ -2,12 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom';
 
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { doc, getFirestore, getDoc, getDocs, collection, setDoc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { doc, getFirestore, getDoc, getDocs, collection } from "firebase/firestore";
 import { firebaseConfig } from '../scripts/firebase'
 import { initializeApp } from "firebase/app";
-
-// import products from '../products'
 
 import '../styling/paypal.css'
 
@@ -25,9 +23,9 @@ export default function PayPal() {
     const firestoreDB = getFirestore(app)
 
     const navigate = useNavigate()
-    
+
     useEffect(() => {
-        if(totalPrice !== 0) {
+        if (totalPrice !== 0) {
             window.paypal.Buttons({
                 createOrder: (data, actions, err) => {
                     return actions.order.create({
@@ -46,7 +44,7 @@ export default function PayPal() {
                                 country_code: 'US'
                             },
                         },
-                        
+
                         purchase_units: [
                             {
                                 amount: {
@@ -67,23 +65,18 @@ export default function PayPal() {
                 }
             }).render(paypal.current)
 
-            console.log(Object.keys(currentUserAddress).length)
-            return
-        }
-
-        if(Object.values(currentUserAddress).length !== 0) {
-            handleTotalPrice()
             return
         }
 
         handleLoginCheck()
 
-        // if(totalPrice > 0) {
-        //     return
-        // } 
-        
-        if(currentUserInformation.uid !== undefined) {
-            handleGetUserInformation()
+        if(cartCount.length !== 0) {
+            handleTotalPrice()
+            return
+        }
+
+        if (currentUserInformation.uid !== undefined) {
+
             handleGetCartCount()
             console.log('render')
         }
@@ -92,30 +85,30 @@ export default function PayPal() {
 
     async function handleGetCartCount() {
         const querySnapshot = await getDocs(collection(firestoreDB, currentUserInformation.uid, 'Cart', 'Items'));
-        
+
         querySnapshot.forEach((doc) => {
-          setCartCount((oldArray) => [...oldArray, doc.data()])
-          // console.log(doc.id, " => ", doc.data());
+            setCartCount((oldArray) => [...oldArray, doc.data()])
+            // console.log(doc.id, " => ", doc.data());
         });
         console.log(cartCount)
-      }
-    
-      function handleTotalPrice() {
-          let price = 0
-    
-          for(let i = 0; i < cartCount.length; i++) {
-              price += cartCount[i].information.price
-          }
-    
-          setTotalPrice(price.toFixed(2))
-          console.log(totalPrice)
-      }
+    }
+
+    function handleTotalPrice() {
+        let price = 0
+
+        for (let i = 0; i < cartCount.length; i++) {
+            price += cartCount[i].information.price
+        }
+
+        setTotalPrice(price.toFixed(2))
+        console.log(totalPrice)
+    }
 
     function handleLoginCheck() {
         onAuthStateChanged(auth, (user) => {
-            if(user) {
+            if (user) {
                 const uid = user.uid
-  
+
                 setCurrentUserInformation(user)
                 // console.log(uid)
             } else {
@@ -127,7 +120,7 @@ export default function PayPal() {
     async function handleGetUserInformation() {
         const docRef = doc(firestoreDB, currentUserInformation.uid, 'Information')
         const docSnap = await getDoc(docRef)
-    
+
         // if(docSnap.data()) {
         //   firstNameRef.current.value = docSnap.data().first
         //   lastNameRef.current.value = docSnap.data().last
@@ -139,19 +132,19 @@ export default function PayPal() {
         //   cityRef.current.value = docSnap.data().city
         //   stateRef.current.value = docSnap.data().state
         //   zipCodeRef.current.value = docSnap.data().zip
-    
+
         //   console.log('Tis Working')
         // }
 
         setCurrentUserAddress(docSnap.data())
-    
-        // console.log(Object.values(docSnap.data()))
+
+        console.log(Object.values(docSnap.data()))
     }
 
-  return (
-    <div>
-        <div className='paypal-container' ref={paypal} style={{width: '330px'}}></div>
-        {/* <button onClick={() => console.log(totalPrice)}>Test</button> */}
-    </div>
-  )
+    return (
+        <div>
+            <div className='paypal-container' ref={paypal} style={{ width: '330px' }}></div>
+            {/* <button onClick={() => console.log(totalPrice)}>Test</button> */}
+        </div>
+    )
 }

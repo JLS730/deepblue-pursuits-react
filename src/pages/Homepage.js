@@ -33,6 +33,7 @@ export default function Homepage() {
   const firestoreDB = getFirestore(app)
 
   useEffect(() => {
+    // handleAnonymousLoggin()
     handleCheckUser()
 
     if (currentUserInformation.uid !== undefined) {
@@ -71,7 +72,8 @@ export default function Homepage() {
         console.log(user)
 
       } else {
-
+        handleAnonymousLoggin()
+        return
       }
     });
   }
@@ -100,7 +102,7 @@ export default function Homepage() {
               <th><i className="fa-solid fa-bars"></i> Popular Suggestions</th>
             </tr>
             <tr>
-              <td>Fishing Rods</td>
+              <td><Link>Fishing Rods</Link></td>
             </tr>
             <tr>
               <td>Fishing Accessories</td>
@@ -156,7 +158,7 @@ export default function Homepage() {
                 <span className="rod-result-price">${products.rods[0].price}</span>
                 <div className="result-button-container">
                   <i className="fa-solid fa-cart-shopping"></i>
-                  <button className="options-button">Select Options</button>
+                  <button className="options-button"><Link to={`/shop/product/casting_${products.rods[0].id}`}>Select Options</Link></button>
                 </div>
               </div>
             </div>
@@ -167,7 +169,7 @@ export default function Homepage() {
                 <span className="rod-result-price">${products.rods[1].price}</span>
                 <div className="result-button-container">
                   <i className="fa-solid fa-cart-shopping"></i>
-                  <button className="options-button">Select Options</button>
+                  <button className="options-button"><Link to={`/shop/product/casting_${products.rods[1].id}`}>Select Options</Link></button>
                 </div>
               </div>
             </div>
@@ -178,7 +180,7 @@ export default function Homepage() {
                 <span className="rod-result-price">${products.rods[2].price}</span>
                 <div className="result-button-container">
                   <i className="fa-solid fa-cart-shopping"></i>
-                  <button className="options-button">Select Options</button>
+                  <button className="options-button"><Link to={`/shop/product/casting_${products.rods[2].id}`}>Select Options</Link></button>
                 </div>
               </div>
             </div>
@@ -189,7 +191,7 @@ export default function Homepage() {
                 <span className="rod-result-price">${products.rods[3].price}</span>
                 <div className="result-button-container">
                   <i className="fa-solid fa-cart-shopping"></i>
-                  <button className="options-button">Select Options</button>
+                  <button className="options-button"><Link to={`/shop/product/casting_${products.rods[3].id}`}>Select Options</Link></button>
                 </div>
               </div>
             </div>

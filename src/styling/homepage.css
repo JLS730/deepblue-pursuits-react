@@ -36,6 +36,9 @@
   color: white;
   margin-left: 0.8em;
 }
+.homepage-banner-image-container .banner-catergories table tr td a {
+  text-decoration: none;
+}
 .homepage-banner-image-container .banner-image-container {
   width: 570px;
   height: 466px;
@@ -144,10 +147,11 @@
   font-weight: 400;
 }
 .homepage-banner-image-container .banner-suggestion-container .suggestion-container-1 .shop-suggestion-container button {
-  border: 1px solid #010937;
-  padding: 0.1em 0.2em;
+  border: none;
+  padding: 0.2em 0.3em;
   color: white;
   background-color: #010937;
+  transition: 0.1s all linear;
   font-style: italic;
   transition: 0.1s all linear;
   cursor: pointer;
@@ -183,10 +187,11 @@
   font-weight: 400;
 }
 .homepage-banner-image-container .banner-suggestion-container .suggestion-container-2 .shop-suggestion-container button {
-  border: 1px solid #010937;
-  padding: 0.1em 0.2em;
+  border: none;
+  padding: 0.2em 0.3em;
   color: white;
   background-color: #010937;
+  transition: 0.1s all linear;
   font-style: italic;
   transition: 0.1sall linear;
   cursor: pointer;
@@ -236,16 +241,14 @@
 }
 .homepage-sale-banner-container .sale-banner .sale-container-1 .sales-text-container .sale-button {
   padding: 0.3em 1.5em;
-  border: 1px solid #010937;
+  border: none;
   background-color: #00b4d8;
   color: white;
   cursor: pointer;
   transition: 0.1s all linear;
 }
 .homepage-sale-banner-container .sale-banner .sale-container-1 .sales-text-container .sale-button:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid #00b4d8;
+  background-color: #8d9f0d;
 }
 .homepage-sale-banner-container .sale-banner .sale-container-1 img {
   height: 220px;
@@ -385,6 +388,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: 0.1s all linear;
 }
 .homepage-container .hot-items-container .items-container .rods-results .result-button-container i {
   color: white;
@@ -395,24 +400,33 @@
   border: none;
   background-color: #010937;
   padding: 0.21em 1em;
+  cursor: pointer;
+  transition: 0.14s all linear;
+}
+.homepage-container .hot-items-container .items-container .rods-results .result-button-container button a {
   color: white;
+  text-decoration: none;
+}
+.homepage-container .hot-items-container .items-container .rods-results .result-button-container:hover {
+  background-color: #010937;
+}
+.homepage-container .hot-items-container .items-container .rods-results .result-button-container:hover button {
+  background-color: #00b4d8;
 }
 .homepage-container .hot-items-container .shop-all-button-container {
   padding: 3em 0;
 }
 .homepage-container .hot-items-container .shop-all-button-container .shop-all-button {
-  font-size: 1.2em;
+  font-size: 1.3em;
   padding: 0.2em 1em;
-  border: 1px solid #010937;
+  border: none;
   background-color: #00b4d8;
   color: white;
   cursor: pointer;
   transition: 0.1s all linear;
 }
 .homepage-container .hot-items-container .shop-all-button-container .shop-all-button:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid #00b4d8;
+  background-color: #8d9f0d;
 }
 .homepage-container .tips-and-tricks-container {
   display: flex;

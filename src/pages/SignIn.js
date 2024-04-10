@@ -7,12 +7,19 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../scripts/firebase';
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { doc, setDoc, getDocs, collection, getFirestore } from "firebase/firestore";
 
 import NavigationBar from '../components/NavigationBar';
 
 const SignIn = () => {
     const firebaseApp = initializeApp(firebaseConfig)
     const auth = getAuth()
+
+    const app = initializeApp(firebaseConfig);
+    const firestoreDB = getFirestore(app)
+
+    const [currentUserInformation, setCurrentUserInformation] = useState({})
+    const [cartCount, setCartCount] = useState([])
 
     const emailInputRef = useRef(null)
     const passwordInputRef = useRef(null)
@@ -24,8 +31,12 @@ const SignIn = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        handleUserCheck()
-    }, [userLoggedIn])
+        handleCheckUser()
+
+        if (currentUserInformation.uid !== undefined) {
+            handleGetCartCount()
+        }
+    }, [userLoggedIn, currentUserInformation])
 
     function handleUserSignIn(email, password) {
         signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
@@ -43,24 +54,24 @@ const SignIn = () => {
         });
     }
 
-    function handleUserCheck() {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const uid = user.uid;
-                const currentUser = user;
+    // function handleUserCheck() {
+    //     onAuthStateChanged(auth, (user) => {
+    //         if (user) {
+    //             const uid = user.uid;
+    //             const currentUser = user;
 
-                if (user) {
-                    navigate('/home')
-                }
+    //             if (!user.isAnonymous) {
+    //                 navigate('/')
+    //             }
 
-                console.log(currentUser)
-                console.log(uid)
-            } else {
-                // User is signed out
-                // ...
-            }
-        });
-    }
+    //             console.log(currentUser)
+    //             console.log(uid)
+    //         } else {
+    //             // User is signed out
+    //             // ...
+    //         }
+    //     });
+    // }
 
     function handleSignOut() {
         signOut(auth).then(() => {
@@ -70,10 +81,33 @@ const SignIn = () => {
         });
     }
 
+    function handleCheckUser() {
+        onAuthStateChanged(auth, (user) => {
+            if (user.isAnonymous === false) {
+                navigate('/')
+                
+            } else {
+                const uid = user.uid;
+                setCurrentUserInformation(user)
+                console.log(user)
+
+            }
+        });
+    }
+
+    async function handleGetCartCount() {
+        const querySnapshot = await getDocs(collection(firestoreDB, currentUserInformation.uid, 'Cart', 'Items'));
+
+        querySnapshot.forEach((doc) => {
+            setCartCount((oldArray) => [...oldArray, doc.data()])
+            // console.log(doc.id, " => ", doc.data());
+        });
+        console.log(cartCount)
+    }
 
     return (
         <>
-            < NavigationBar />
+            < NavigationBar count={cartCount.length} />
             <div className="login-container">
                 <div className="login-credentials-container">
                     <div className="login-credentials-intro-container">

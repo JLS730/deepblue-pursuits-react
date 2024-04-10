@@ -39,7 +39,7 @@ export default function NavigationBar(props) {
             // console.log('caught')
         }
 
-        console.log(currentUserInformation.uid)
+        // console.log(currentUserInformation.uid)
     }, [currentUserInformation, props])
 
     function handleLoginCheck() {
@@ -50,17 +50,18 @@ export default function NavigationBar(props) {
                 setCurrentUserInformation(user)
                 // console.log(uid)
             } else {
-                console.log('No User Found!')
+                // console.log('No User Found!')
             }
         })
     }
 
     function handleCurrentUserLoggedIn() {
         onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setTestSwitch(true)
-            } else {
+            if (user.isAnonymous) {
+                console.log(user)
                 setTestSwitch(false)
+            } else {
+                setTestSwitch(true)
             }
         });
     }
@@ -72,7 +73,7 @@ export default function NavigationBar(props) {
             setCartCount((oldArray) => [...oldArray, doc.data()])
             // console.log(doc.id, " => ", doc.data());
         });
-        console.log(cartCount)
+        // console.log(cartCount)
     }
 
     function handleTotalPrice() {
@@ -83,7 +84,7 @@ export default function NavigationBar(props) {
         }
 
         setTotalPrice(price.toFixed(2))
-        console.log(price.toFixed(2))
+        // console.log(price.toFixed(2))
     }
 
     function handleHamburgerMenuLinks(element) {
@@ -141,7 +142,7 @@ export default function NavigationBar(props) {
                     <div className="navigation-bar-right">
                         <ul className="navigation-links">
                             {/* <Link to='/'>Home</Link> */}
-                            {testSwitch === false ? <Link to='/'>Sign-in</Link> : null}
+                            {testSwitch === false ? <Link to='/sign-in'>Sign-in</Link> : null}
                             {testSwitch === true ? <Link to='/account'>Account</Link> : null}
                             {/* <Link to='/sign-in'>Sign-in</Link> */}
                             {/* <Link to='/'>First</Link> */}
@@ -161,7 +162,7 @@ export default function NavigationBar(props) {
                 </div>
                 <div className="navigation-catergories-container">
                     <ul className="catergories-container">
-                        <Link to='#'><li className='catergory-link'>Home</li></Link>
+                        <Link to='/'><li className='catergory-link'>Home</li></Link>
                         <Link to='#'><li className='catergory-link'>Features</li></Link>
                         <Link to='#'><li className='catergory-link'>Products</li></Link>
                         <Link to='#'><li className='catergory-link'>Classes</li></Link>
@@ -170,7 +171,7 @@ export default function NavigationBar(props) {
                         <Link to='#'><li className='catergory-link'>Contact Us</li></Link>
                     </ul>
                     <div className="search-container">
-                        <input className='catergorie-search-input' type="texxt" />
+                        <input className='catergorie-search-input' type="text" />
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="navigation-hamburger-menu-container" onClick={() => handleHamburgerMenuOpenBtn(hamburgerMenuRef.current)}>
