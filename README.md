@@ -14,17 +14,6 @@ Add a detailed introduction about the project here, everything you want the read
 
 After this, changes will be merged.
 
-
-### :exclamation: Guideline
-coding guidelines or other things you want people to follow should follow.
-
-
-## :question: FAQ
-You can optionally add a FAQ section about the project.
-
-##  :page_facing_up: Resources
-Add important resources here
-
 ##  :camera: Gallery
 Pictures of your project.
 
