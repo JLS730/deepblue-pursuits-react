@@ -1,5 +1,5 @@
 # Introduction
-- Add your project logo.
+- [Add your project logo.](https://imgur.com/a/9nz99aW)
 - Write a short introduction to the project.
 - If you are using badges, add them here.
 
