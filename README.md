@@ -15,6 +15,6 @@ DeepBlue Pursuits is a website that allows users to shop for fishing rods and ot
 - React Router
 - Paypal
 
-##  :camera: Gallery
-Pictures of your project.
+##  :camera: Video Preview
 
+![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2d6ZXNnenhxcjAzZ2RkbHR2Z2E4ZXZkeWliYmxzajlnN3NiNDY0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dKYXu2g2auLFrcaPd7/giphy.gif)
