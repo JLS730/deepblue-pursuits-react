@@ -13,7 +13,7 @@ DeepBlue Pursuits is a website that allows users to shop for fishing rods and ot
 - Firestore
 - Sass
 - React Router
-- Paypal
+- PayPal
 
 ##  :camera: Video Preview
 
